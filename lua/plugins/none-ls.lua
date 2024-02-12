@@ -8,6 +8,8 @@ return {
 				-- PYTHON
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.isort,
+        -- MARKDOWN
+        null_ls.builtins.formatting.mdformat,
 			},
 		})
 

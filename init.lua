@@ -1,3 +1,4 @@
+-- Trae set.lua y remap.lua
 require('chaCon')
 
 -- CLONAR LAZY SI NO EXISTE
@@ -13,10 +14,6 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-
-
--- OPTS
-local opts = {}
 
 -- INICIAR LAZY
 require("lazy").setup("plugins")

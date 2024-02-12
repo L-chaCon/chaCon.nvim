@@ -15,10 +15,6 @@ vim.o.mouse = 'a'
 -- Enable break indent
 vim.o.breakindent = true
 
--- Save undo history
-vim.o.undofile = true
---vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
-
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
