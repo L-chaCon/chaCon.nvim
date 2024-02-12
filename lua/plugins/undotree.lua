@@ -9,6 +9,6 @@ return {
 		vim.o.undofile = true
 		vim.o.undodir = os.getenv("HOME") .. "/.config/nvim/.undotree_files"
 
-		vim.keymap.set("n", "<leader>u", require("undotree").toggle, { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>u", require("undotree").toggle, { noremap = true, silent = true, desc = 'Mostrar [U]ndo-tree'})
 	end,
 }

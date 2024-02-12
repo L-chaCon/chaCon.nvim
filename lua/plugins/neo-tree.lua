@@ -20,7 +20,13 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
-		vim.keymap.set("n", "<C-b>", ":Neotree buffers<CR>", {})
+		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", { desc = "Open Neo-Tree [File] explorer" })
+		vim.keymap.set("n", "<C-b>", ":Neotree buffers right<CR>", { desc = "Open Neo-Tree [Buffer] explorer" })
+		vim.keymap.set(
+			"n",
+			"<leader>pa",
+			":Neotree toggle current reveal_force_cwd<cr>",
+			{ desc = "Ir a explorador de Archivos" }
+		)
 	end,
 }

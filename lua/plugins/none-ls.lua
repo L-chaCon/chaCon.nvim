@@ -13,6 +13,6 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, {})
+		vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, {desc = 'Formatear el Documento'})
 	end,
 }
