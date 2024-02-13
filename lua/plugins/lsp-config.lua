@@ -7,9 +7,24 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+    },
     config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls" },
+      require("mason-lspconfig").setup({})
+      require("mason-tool-installer").setup({
+        ensure_installed = {
+          -- LUA
+          "lua_ls",          --LSP
+          "stylua",          --FORMATTER
+          --PYTON,
+          "jedi-language-server", --LSP
+          "black",           --FORMATTER
+          "isort",           --FORMATTER
+          -- MARCKDOWN
+          "mdformat",
+        },
+        auto_update = true,
       })
     end,
   },
