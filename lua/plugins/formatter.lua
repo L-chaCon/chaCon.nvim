@@ -9,6 +9,8 @@ return {
 				-- PYTHON
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.isort,
+        -- GO
+        null_ls.builtins.formatting.goimports,
 				-- MARKDOWN
 				null_ls.builtins.formatting.mdformat,
 			},
