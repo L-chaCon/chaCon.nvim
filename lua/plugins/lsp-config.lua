@@ -11,7 +11,9 @@ return {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 		},
 		config = function()
-			require("mason-lspconfig").setup({})
+			require("mason-lspconfig").setup({
+				auto_install = true,
+			})
 			require("mason-tool-installer").setup({
 				ensure_installed = {
 					-- LUA
@@ -26,7 +28,11 @@ return {
 					"golangci-lint", --LINTER
 					"goimports", --FORMATTER
 					-- MARCKDOWN
-					"mdformat",
+					"ltex-ls", --LSP
+					"mdformat", -- FORMATTER
+					-- JSON
+					"jq", -- FORMATTER
+					"json-lsp", -- LSP
 				},
 				auto_update = true,
 			})
@@ -48,6 +54,14 @@ return {
 			})
 			-- GO
 			lspconfig.gopls.setup({
+				capabilities = capabilities,
+			})
+			-- MARCKDOWN
+			lspconfig.ltex.setup({
+				capabilities = capabilities,
+			})
+			-- JSON
+			lspconfig.jsonls.setup({
 				capabilities = capabilities,
 			})
 
