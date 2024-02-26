@@ -12,7 +12,7 @@ return {
       vim.keymap.set("n", "<leader>gaf", ":Git add %<CR>", { desc = "[G]it [A]dd [F]ile" })
       vim.keymap.set("n", "<leader>grr", ":Git reset .<CR>", { desc = "Git Rest All" })
       vim.keymap.set("n", "<leader>grf", ":Git reset %<CR>", { desc = "[G]it [R]est [F]ile" })
-      vim.keymap.set("n", "<leader>gp", ":Git pull<CR>", { desc = "[G]it [P]ull" })
+      vim.keymap.set("n", "<leader>gl", ":Git pull<CR>", { desc = "[G]it Pu[L]l" })
 			vim.keymap.set("n", "<leader>gc", ":Git commit -m '", { desc = "[G]it [C]ommit" })
       vim.keymap.set("n", "<leader>gu", ":Git push<CR>", { desc = "[G]it P[U]sh" })
 		end,
