@@ -15,6 +15,8 @@ return {
         null_ls.builtins.formatting.mdformat,
         -- JSON
         null_ls.builtins.formatting.jq,
+        -- YAML
+        null_ls.builtins.formatting.yamlfmt,
       },
     })
 
