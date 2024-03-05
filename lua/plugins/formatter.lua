@@ -1,25 +1,39 @@
 return {
-  "nvimtools/none-ls.nvim",
-  config = function()
-    -- APLICAR FORMATTERS
-    local null_ls = require("null-ls")
-    null_ls.setup({
-      sources = {
-        null_ls.builtins.formatting.stylua,
-        -- PYTHON
-        null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.isort,
-        -- GO
-        null_ls.builtins.formatting.goimports,
-        -- MARKDOWN
-        null_ls.builtins.formatting.mdformat,
-        -- JSON
-        null_ls.builtins.formatting.jq,
-        -- YAML
-        null_ls.builtins.formatting.yamlfmt,
-      },
-    })
-
-    vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, { desc = "Formatear el Documento" })
-  end,
+	"stevearc/conform.nvim",
+	event = { "BufWritePre" },
+	cmd = { "ConformInfo" },
+	keys = {
+		{
+			-- Customize or remove this keymap to your liking
+			"<leader>=",
+			function()
+				require("conform").format({ async = true, lsp_fallback = true })
+			end,
+			mode = "",
+			desc = "Format buffer",
+		},
+	},
+	-- Everything in opts will be passed to setup()
+	opts = {
+		-- Define your formatters
+		formatters_by_ft = {
+			lua = { "stylua" },
+			python = { "isort", "black" },
+			markdown = { "mdformat" },
+			go = { "goimports", "gofmt" },
+			yaml = { "yamlfmt" },
+		},
+		-- Set up format-on-save
+		format_on_save = { timeout_ms = 500, lsp_fallback = true },
+		-- Customize formatters
+		formatters = {
+			shfmt = {
+				prepend_args = { "-i", "2" },
+			},
+		},
+	},
+	init = function()
+		-- If you want the formatexpr, here is the place to set it
+		vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+	end,
 }
