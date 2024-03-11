@@ -1,6 +1,5 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
--- NOTE: You can change these options as you wish!
 
 vim.o.cursorline = true
 
@@ -51,3 +50,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+-- Mouse Options
+vim.o.mousemoveevent = true
