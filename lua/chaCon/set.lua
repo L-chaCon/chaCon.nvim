@@ -37,8 +37,7 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 
 -- Limite superior
-vim.o.scrolloff = 8
-vim.o.colorcolumn = 100
+vim.o.scrolloff = 10
 
 vim.o.updatetime = 50
 
@@ -53,3 +52,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Mouse Options
 vim.o.mousemoveevent = true
+
+-- TMUX opening terminal
