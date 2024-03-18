@@ -1,7 +1,7 @@
 return {
-	-- {
-	-- 	"Bekaboo/dropbar.nvim",
-	-- },
+	{
+		"Bekaboo/dropbar.nvim",
+	},
 	-- NOICE
 	{
 		"folke/noice.nvim",
@@ -14,11 +14,6 @@ return {
 			"rcarriga/nvim-notify",
 		},
 		config = function()
-			-- ERROR POR TRANSPARENCIA
-			require("notify").setup({
-				background_colour = "#000000",
-			})
-
 			require("noice").setup({
 				lsp = {
 					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -39,7 +34,6 @@ return {
 			})
 			-- AGREGAR :Telescope noice
 			require("telescope").load_extension("noice")
-
 			vim.keymap.set("n", "<leader>nd", ":NoiceDismiss<CR>", { desc = "[N]oice [D]ismiss Messages" })
 			vim.keymap.set(
 				"n",
@@ -59,7 +53,6 @@ return {
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
 		config = function() -- This is the function that runs, AFTER loading
 			require("which-key").setup()
-
 			-- Document existing key chains
 			require("which-key").register({
 				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
@@ -85,6 +78,7 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
 	},
+	-- Dashboard de Inicio
 	{
 		"goolord/alpha-nvim",
 		config = function()
@@ -138,5 +132,4 @@ return {
 	-- 	main = "ibl",
 	-- 	opts = {},
 	-- },
-	-- Dashboard de Inicio
 }
