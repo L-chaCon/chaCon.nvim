@@ -20,8 +20,8 @@ return {
 			lua = { "stylua" },
 			python = { "isort", "black" },
 			markdown = { "mdformat" },
-			go = { "goimports", "gofmt" },
-			yaml = { "yamlfmt" },
+			-- go = { "goimports", "gofmt" },
+			-- yaml = { "yamlfmt" },
 		},
 		-- Set up format-on-save
 		format_on_save = { timeout_ms = 500, lsp_fallback = true },

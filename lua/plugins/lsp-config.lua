@@ -33,18 +33,18 @@ return {
 					-- Jump to the type of the word under your cursor.
 					--  Useful when you're not sure what type a variable is and you want to see
 					--  the definition of its *type*, not where it was *defined*.
-					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+					map("<leader>lD", require("telescope.builtin").lsp_type_definitions, "[L]SP Type [D]efinition")
 
 					-- Fuzzy find all the symbols in your current document.
 					--  Symbols are things like variables, functions, types, etc.
-					map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+					map("<leader>lds", require("telescope.builtin").lsp_document_symbols, "[L]SP [D]ocument [S]ymbols")
 
 					-- Fuzzy find all the symbols in your current workspace
 					--  Similar to document symbols, except searches over your whole project.
 					map(
-						"<leader>ws",
+						"<leader>lws",
 						require("telescope.builtin").lsp_dynamic_workspace_symbols,
-						"[W]orkspace [S]ymbols"
+						"[L]SP [W]orkspace [S]ymbols"
 					)
 
 					-- Rename the variable under your cursor
@@ -113,7 +113,6 @@ return {
 			local servers = {
 				-- clangd = {},
 				-- gopls = {},
-				-- pyright = {},
 				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
@@ -123,8 +122,9 @@ return {
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				-- tsserver = {},
 				--
+				pyright = {},
 
-				-- TODO - configutar los LSP de los lenguajes que uso
+				-- TODO: - configutar los LSP de los lenguajes que uso
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes { ...},
@@ -162,18 +162,21 @@ return {
 				"lua_ls", --LSP
 				"stylua", --FORMATTER
 				--PYTON,
-				"jedi-language-server", --LSP
+				"pyright", --LSP
 				"black", --FORMATTER
 				"isort", --FORMATTER
-				--GO
-				"gopls", --LSP
-				"goimports", --FORMATTER
+				"pylint", --LINTER
+				"mypy", --LINTER
+				"flake8", --LINTER
+				-- -- GO
+				-- "gopls", --LSP
+				-- "goimports", --FORMATTER
 				-- MARCKDOWN
-				"ltex-ls", --LSP
-				"mdformat", -- FORMATTER
-				-- JSON
-				"jq", -- FORMATTER
-				"json-lsp", -- LSP
+				-- "ltex-ls", --LSP
+				-- "mdformat", -- FORMATTER
+				-- -- JSON
+				-- "jq", -- FORMATTER
+				-- "json-lsp", -- LSP
 				-- YAML
 				"yaml-language-server", -- LSP
 				"yamlfmt", -- FORMATTER

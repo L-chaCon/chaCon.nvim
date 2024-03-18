@@ -53,4 +53,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Mouse Options
 vim.o.mousemoveevent = true
 
--- TMUX opening terminal
+-- Python interpreter
+vim.g.python_host_prog = "/opt/artlogic/bin/python"
+vim.g.python3_host_prog = "/usr/bin/python3"
