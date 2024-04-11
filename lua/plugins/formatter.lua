@@ -20,7 +20,7 @@ return {
 			lua = { "stylua" },
 			python = { "isort", "black" },
 			markdown = { "mdformat" },
-			-- go = { "goimports", "gofmt" },
+			go = { "goimports", "gofmt" },
 			-- yaml = { "yamlfmt" },
 		},
 		-- Set up format-on-save

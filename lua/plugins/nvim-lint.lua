@@ -8,10 +8,13 @@ return {
 				"pylint",
 				"mypy",
 			},
+			go = {
+				"golangcilint",
+			},
 		}
 		-- correr al guardar
 		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-			pattern = { "*.py" },
+			pattern = { "*.py", "*.go" },
 			callback = function()
 				require("lint").try_lint()
 			end,

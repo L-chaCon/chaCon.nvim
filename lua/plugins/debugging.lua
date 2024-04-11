@@ -8,6 +8,7 @@ return {
 			-- TODO: hacer algun comentario
 			"nvim-telescope/telescope-dap.nvim",
 			"theHamsta/nvim-dap-virtual-text",
+			"nvim-neotest/nvim-nio",
 
 			-- Add your own debuggers here
 			"leoluz/nvim-dap-go",
