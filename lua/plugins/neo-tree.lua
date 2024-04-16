@@ -67,7 +67,7 @@ return {
 				"n",
 				"<C-n>",
 				":Neotree filesystem reveal left<CR>",
-				{ desc = "Open Neo-Tree [File] explorer" }
+				{ desc = "Open Neo-Tree [File] explorer", silent = true }
 			)
 			vim.keymap.set("n", "<C-b>", ":Neotree buffers right<CR>", { desc = "Open Neo-Tree [Buffer] explorer" })
 			vim.keymap.set(
