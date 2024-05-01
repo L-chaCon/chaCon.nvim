@@ -1,20 +1,20 @@
 return {
 	{
-		"tpope/vim-fugitive",
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
 		config = function()
-			vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", { desc = "[G]it [B]ranches" })
-			vim.keymap.set("n", "<leader>g;", ":Telescope git_status<CR>", { desc = "Git Status in Telescope" })
-			vim.keymap.set("n", "<leader>gsw", ":Telescope git_stash<CR>", { desc = "[G]it [S]tash [W]indow" })
-			vim.keymap.set("n", "<leader>gd", ":Git diff<CR>", { desc = "[G]it [D]iff" })
-			vim.keymap.set("n", "<leader>gss", ":Git stash<CR>", { desc = "[G]it [S]ta[S]h" })
-			vim.keymap.set("n", "<leader>gsp", ":Git stash pop<CR>", { desc = "[G]it [S]tash [P]op" })
-			vim.keymap.set("n", "<leader>gaa", ":Git add .<CR>", { desc = "[G]it [A]dd [A]ll" })
-			vim.keymap.set("n", "<leader>gaf", ":Git add %<CR>", { desc = "[G]it [A]dd [F]ile" })
-			vim.keymap.set("n", "<leader>grr", ":Git reset .<CR>", { desc = "Git Rest All" })
-			vim.keymap.set("n", "<leader>grf", ":Git reset %<CR>", { desc = "[G]it [R]est [F]ile" })
-			vim.keymap.set("n", "<leader>gl", ":Git pull<CR>", { silent = true, desc = "[G]it Pu[L]l" })
-			vim.keymap.set("n", "<leader>go", ":Git commit -m '", { desc = "[G]it C[O]mmit" })
-			vim.keymap.set("n", "<leader>gu", ":Git push<CR>", { silent = true, desc = "[G]it P[U]sh" })
+			require("neogit").setup({})
+			vim.keymap.set("n", "<leader>gaa", ":!git add .<CR>", { desc = "[G]it [A]dd [A]ll" })
+			vim.keymap.set("n", "<leader>gaf", ":!git add %<CR>", { desc = "[G]it [A]dd [F]ile" })
+			vim.keymap.set("n", "<leader>grr", ":!git reset .<CR>", { desc = "Git Rest All" })
+			vim.keymap.set("n", "<leader>grf", ":!git reset %<CR>", { desc = "[G]it [R]est [F]ile" })
+			vim.keymap.set("n", "<leader>gl", ":!git pull<CR>", { silent = true, desc = "[G]it Pu[L]l" })
+			vim.keymap.set("n", "<leader>gu", ":!git push<CR>", { silent = true, desc = "[G]it P[U]sh" })
+			vim.keymap.set("n", "<leader>g;", ":Neogit<CR>", { desc = "Neo-Git" })
 		end,
 	},
 	{
