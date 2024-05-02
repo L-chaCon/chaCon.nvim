@@ -46,3 +46,7 @@ vim.keymap.set(
 	"<cmd>silent !tmux neww ~/.local/scripts/tmux-sessionizer<CR>",
 	{ desc = "Abrir Projecto Tmux" }
 )
+
+-- Preview Markdown
+vim.keymap.set("n", "<leader>mv", ":MarkdownPreview<CR>", { desc = "Preview Archivos Marckdown" })
+vim.keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<CR>", { desc = "Stop Preview Marckdown" })
