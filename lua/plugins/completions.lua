@@ -8,12 +8,8 @@ return {
 			vim.keymap.set("n", "<leader>gcu", ":Copilot setup<CR>", { desc = "Set [U]p Copilot" })
 			vim.keymap.set("n", "<leader>gci", ":Copilot signin<CR>", { desc = "Sign [I]n Copilot", silent = true })
 			vim.keymap.set("n", "<leader>gco", ":Copilot signout<CR>", { desc = "Sing [O]ut Copilot", silent = true })
-			vim.g.copilot_no_tab_map = true
-			vim.api.nvim_set_keymap("i", "<c-y>", 'copilot#Accept("\\<CR>")', {
-				expr = true,
-				replace_keycodes = false,
-				silent = true,
-			})
+			-- vim.g.copilot_no_tab_map = true
+			vim.cmd(":Copilot disable")
 		end,
 	},
 	{
@@ -36,60 +32,43 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-buffer",
+			"onsails/lspkind.nvim",
 		},
 		config = function()
 			-- See `:help cmp`
+			vim.opt.completeopt = { "menu", "menuone", "noselect" }
+			local lspkind = require("lspkind")
 			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-			luasnip.config.setup({})
-
 			cmp.setup({
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
-				completion = { completeopt = "menu,menuone,noinsert" },
-				mapping = cmp.mapping.preset.insert({
-					-- Select the [n]ext item
-					["<C-n>"] = cmp.mapping.select_next_item(), -- Select the [p]revious item
-					["<C-p>"] = cmp.mapping.select_prev_item(),
-					-- Accept ([y]es) the completion.
-					--  This will auto-import if your LSP supports it.
-					--  This will expand snippets if the LSP sent a snippet.
-					["<C-y>"] = cmp.mapping.confirm({ select = true }),
-
-					-- Manually trigger a completion from nvim-cmp.
-					--  Generally you don't need this, because nvim-cmp will display
-					--  completions whenever it has completion options available.
-					["<C-Space>"] = cmp.mapping.complete({}),
-
-					-- Think of <c-l> as moving to the right of your snippet expansion.
-					--  So if you have a snippet that's like:
-					--  function $name($args)
-					--    $body
-					--  end
-					--
-					-- <c-l> will move you to the right of each of the expansion locations.
-					-- <c-h> is similar, except moving you backwards.
-					["<C-l>"] = cmp.mapping(function()
-						if luasnip.expand_or_locally_jumpable() then
-							luasnip.expand_or_jump()
-						end
-					end, { "i", "s" }),
-					["<C-h>"] = cmp.mapping(function()
-						if luasnip.locally_jumpable(-1) then
-							luasnip.jump(-1)
-						end
-					end, { "i", "s" }),
-				}),
 				sources = {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
 				},
+				mapping = {
+					["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), -- Select the [p]revious item
+					["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+					["<C-y>"] = cmp.mapping(cmp.mapping.confirm({
+						cmp.SelectBehavior.Insert,
+						select = true,
+					}, { "i", "c" })),
+				},
+				-- Enable LuaSnip
+				snippet = {
+					expand = function(args)
+						require("luasnip").lsp_expand(args.body)
+					end,
+				},
+				formatting = {
+					format = lspkind.cmp_format({
+						mode = "text_symbol",
+						maxwidth = 50,
+						ellipsis_char = "...",
+						show_labelDetails = true,
+					}),
+				},
 			})
-
 			-- `/` cmdline setup.
 			cmp.setup.cmdline("/", {
 				mapping = cmp.mapping.preset.cmdline(),
@@ -97,7 +76,6 @@ return {
 					{ name = "buffer" },
 				},
 			})
-
 			-- `:` cmdline setup.
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
@@ -112,7 +90,6 @@ return {
 					},
 				}),
 			})
-
 			-- Setup for vim-dadbod
 			cmp.setup.filetype({ "sql" }, {
 				sources = {
@@ -120,6 +97,26 @@ return {
 					{ name = "buffer" },
 				},
 			})
+			-- LUASNIP CONFIG
+			local ls = require("luasnip")
+			ls.config.set_config({
+				history = false,
+				updateevents = "TextChanged, TextChangedI",
+			})
+			for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/chaCon/snippets/*.lua", true)) do
+				loadfile(ft_path)()
+			end
+
+			vim.keymap.set({ "i", "s" }, "<C-k>", function()
+				if ls.expand_or_jumpable() then
+					ls.expand_or_jump()
+				end
+			end, { silent = true })
+			vim.keymap.set({ "i", "s" }, "<C-j>", function()
+				if ls.jumpable(-1) then
+					ls.jump(-1)
+				end
+			end, { silent = true })
 		end,
 	},
 }
