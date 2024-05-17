@@ -24,7 +24,6 @@ return {
 			})
 		end,
 	},
-	-- NOICE #TODO: Agregar a la configuracion de noice
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
@@ -173,7 +172,7 @@ return {
 			vim.g.moonflyTransparent = true
 		end,
 	},
-	-- TODO: ESta Mierda no me funciona
+	-- TODO: ESTA MIERDA NO ME FUNCIONA
 	-- {
 	-- 	"xiyaowong/transparent.nvim",
 	-- 	lazy = false,
@@ -190,58 +189,6 @@ return {
 	-- 		vim.api.nvim_set_hl(0, "NotifyBackground", vim.api.nvim_get_hl_by_name("Normal", true))
 	-- 	end,
 	-- },
-	-- NEOTREE #TODO: ARREGARL EL PRBLEMA QUE EL BUFER NO CARGA
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		},
-		config = function()
-			vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
-			vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
-			vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
-			vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
-			require("neo-tree").setup({
-				close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
-				popup_border_style = "rounded",
-				window = {
-					width = 30,
-				},
-				filesystem = {
-					filtered_items = {
-						visible = true, -- when true, they will just be displayed differently than normal items
-						hide_dotfiles = false,
-						hide_gitignored = false,
-						hide_hidden = false, -- only works on Windows for hidden files/directories
-					},
-				},
-				event_handlers = {
-					{
-						event = "file_opened",
-						handler = function()
-							require("neo-tree.command").execute({ action = "close" })
-						end,
-					},
-				},
-			})
-
-			vim.keymap.set(
-				"n",
-				"<C-n>",
-				":Neotree filesystem reveal left<CR>",
-				{ desc = "Open Neo-Tree [File] explorer" }
-			)
-			vim.keymap.set("n", "<C-b>", ":Neotree buffers right<CR>", { desc = "Open Neo-Tree [Buffer] explorer" })
-			vim.keymap.set(
-				"n",
-				"<leader>pa",
-				":Neotree toggle current reveal_force_cwd<cr>",
-				{ desc = "Ir a explorador de Archivos" }
-			)
-		end,
-	},
 	{
 		"antosha417/nvim-lsp-file-operations",
 		dependencies = {
