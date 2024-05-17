@@ -40,12 +40,13 @@ vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
-vim.keymap.set(
-	"n",
-	"<C- >",
-	"<cmd>silent !tmux neww ~/.local/scripts/tmux-sessionizer<CR>",
-	{ desc = "Abrir Projecto Tmux" }
-)
+-- TODO: CHANGE THE <C-Space> THIS IS PART OF CMP TO SHOW AUTOCOMPLEATONS
+-- vim.keymap.set(
+-- 	"n",
+-- 	"<C- >",
+-- 	"<cmd>silent !tmux neww ~/.local/scripts/tmux-sessionizer<CR>",
+-- 	{ desc = "Abrir Projecto Tmux" }
+-- )
 
 -- Preview Markdown
 vim.keymap.set("n", "<leader>mv", ":MarkdownPreview<CR>", { desc = "Preview Archivos Marckdown" })
