@@ -1,4 +1,13 @@
 return {
+	-- COLORSCHEME
+	{
+		"EdenEast/nightfox.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("carbonfox")
+		end,
+	},
 	{
 		"Bekaboo/dropbar.nvim",
 		dependencies = {
@@ -10,9 +19,6 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("lualine").setup({
-				options = {
-					theme = "moonfly",
-				},
 				inactive_sections = {
 					lualine_a = { "buffers" },
 					lualine_b = { "filename" },
@@ -87,17 +93,6 @@ return {
 			}
 			startify.section.header.opts.position = "center"
 			alpha.setup(startify.opts)
-		end,
-	},
-	-- COLORSCHEME
-	{
-		"bluz71/vim-moonfly-colors",
-		name = "moonfly",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme("moonfly")
-			vim.g.moonflyTransparent = true
 		end,
 	},
 	-- TODO: ESTA MIERDA NO ME FUNCIONA
