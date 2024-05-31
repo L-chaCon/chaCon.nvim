@@ -36,6 +36,12 @@ return {
 					inc_rename = false, -- enables an input dialog for inc-rename.nvim
 					lsp_doc_border = false, -- add a border to hover docs and signature help
 				},
+				routes = {
+					{
+						view = "notify",
+						filter = { event = "msg_showmode" },
+					},
+				},
 			})
 			-- AGREGAR :Telescope noice
 			require("telescope").load_extension("noice")
@@ -121,13 +127,11 @@ return {
 	},
 	-- COLORSCHEME
 	{
-		"bluz71/vim-moonfly-colors",
-		name = "moonfly",
+		"Edeneast/nightfox.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("moonfly")
-			vim.g.moonflyTransparent = true
+			vim.cmd.colorscheme("carbonfox")
 		end,
 	},
 	-- -- INDENT BLANKLINE

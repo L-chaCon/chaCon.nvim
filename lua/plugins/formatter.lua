@@ -18,7 +18,7 @@ return {
 		-- Define your formatters
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "isort" },
+			-- python = { "isort" },
 			markdown = { "mdformat" },
 			-- go = { "goimports", "gofmt" },
 			-- yaml = { "yamlfmt" },
