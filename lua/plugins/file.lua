@@ -24,7 +24,11 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("oil").setup({
-				columns = { "icon", "permissions" },
+				columns = {
+					{ "icon", add_padding = true },
+					"permissions",
+					"size",
+				},
 				view_options = {
 					show_hidden = true,
 					is_always_hidden = function(name, bufnr)
