@@ -30,7 +30,11 @@ return {
 				win_options = {
 					signcolumn = "yes:2",
 				},
-				columns = { "icon", "permissions" },
+				columns = {
+					{ "icon", add_padding = true },
+					"permissions",
+					"size",
+				},
 				view_options = {
 					show_hidden = true,
 					is_always_hidden = function(name, bufnr)
