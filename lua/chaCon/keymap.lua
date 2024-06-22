@@ -2,6 +2,12 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Save and source file
+vim.keymap.set("n", "<leader><leader>x", function()
+	vim.cmd("w")
+	vim.cmd("source %")
+end, { desc = "Save and Source" })
+
 -- :Moverse entre los resultados del grep
 vim.keymap.set("n", "<leader>j", ":cprev<CR>", { desc = "Previous grep" })
 vim.keymap.set("n", "<leader>k", ":cnext<CR>", { desc = "Next grep" })
@@ -14,7 +20,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half Page UP" })
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- copiar en visual mode y no perder lo que copiaste
+-- pegar en visual mode y no perder lo que esta ahi
 vim.keymap.set("v", "<leader>p", '"_dP', { desc = "Pegar sin perder lo pegado" })
 
 -- Copiar a clipboard

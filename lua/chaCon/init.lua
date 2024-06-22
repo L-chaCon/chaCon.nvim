@@ -1,2 +1,3 @@
-require('chaCon.set')
-require('chaCon.remap')
+require("chaCon.set")
+require("chaCon.keymap")
+require("chaCon.globals")

@@ -95,31 +95,4 @@ return {
 			alpha.setup(startify.opts)
 		end,
 	},
-	-- TODO: ESTA MIERDA NO ME FUNCIONA
-	-- {
-	-- 	"xiyaowong/transparent.nvim",
-	-- 	lazy = false,
-	-- 	config = function()
-	-- 		local transparent = require("transparent")
-	-- 		transparent.setup({
-	-- 			exclude_groups = {
-	-- 				"NeoTreeNormal",
-	-- 				"NoicePopup",
-	-- 				"NoicePopupBorder",
-	-- 				"TelescopeNormal",
-	-- 			},
-	-- 		})
-	-- 		vim.api.nvim_set_hl(0, "NotifyBackground", vim.api.nvim_get_hl_by_name("Normal", true))
-	-- 	end,
-	-- },
-	{
-		"antosha417/nvim-lsp-file-operations",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-neo-tree/neo-tree.nvim",
-		},
-		config = function()
-			require("lsp-file-operations").setup()
-		end,
-	},
 }
