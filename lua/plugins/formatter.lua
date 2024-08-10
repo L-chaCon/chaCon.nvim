@@ -18,9 +18,9 @@ return {
 		-- Define your formatters
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "isort", "black" },
-			markdown = { "mdformat" },
-			go = { "goimports", "gofmt" },
+			python = { "isort" },
+			-- markdown = { "mdformat" },
+			-- go = { "goimports", "gofmt" },
 			-- yaml = { "yamlfmt" },
 		},
 		-- Set up format-on-save
@@ -28,7 +28,7 @@ return {
 		-- Customize formatters
 		formatters = {
 			shfmt = {
-				prepend_args = { "-i", "2" },
+				prepend_args = { "-i", "4" },
 			},
 		},
 	},

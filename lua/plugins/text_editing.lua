@@ -19,4 +19,16 @@ return {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
+	-- BAD HABITS
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+		config = function()
+			require("hardtime").setup({
+				disable_mouse = false,
+			})
+			vim.o.cmdheight = 2
+			vim.o.showmode = false
+		end,
+	},
 }

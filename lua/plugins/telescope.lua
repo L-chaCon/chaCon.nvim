@@ -15,6 +15,11 @@ return {
 			},
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 			{ "nvim-tree/nvim-web-devicons" },
+			-- TODO: HACER QUE FUnCIONE LA WEA DE LAS IMAGENES§
+			{
+				"nvim-telescope/telescope-media-files.nvim",
+				dependencies = { "nvim-lua/popup.nvim" },
+			},
 		},
 		config = function()
 			require("telescope").setup({
@@ -22,12 +27,20 @@ return {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown(),
 					},
+					["media_files"] = {
+						-- filetypes whitelist
+						-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+						filetypes = { "png", "webp", "jpg", "jpeg" },
+						-- find command (defaults to `fd`)
+						find_cmd = "rg",
+					},
 				},
 			})
 
 			-- Enable telescope extensions, if they are installed
 			pcall(require("telescope").load_extension, "fzf")
 			pcall(require("telescope").load_extension, "ui-select")
+			pcall(require("telescope").load_extension, "media_files")
 
 			-- See `:help telescope.builtin`
 			local builtin = require("telescope.builtin")

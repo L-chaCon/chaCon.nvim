@@ -1,18 +1,5 @@
 return {
 	{
-		"github/copilot.vim",
-		config = function()
-			vim.keymap.set("n", "<leader>gcd", ":Copilot disable<CR>", { desc = "[D]isable Copilot" })
-			vim.keymap.set("n", "<leader>gce", ":Copilot enable<CR>", { desc = "[E]nable Copilot" })
-			vim.keymap.set("n", "<leader>gcs", ":Copilot status<CR>", { desc = "[S]tatus Copilot" })
-			vim.keymap.set("n", "<leader>gcu", ":Copilot setup<CR>", { desc = "Set [U]p Copilot" })
-			vim.keymap.set("n", "<leader>gci", ":Copilot signin<CR>", { desc = "Sign [I]n Copilot", silent = true })
-			vim.keymap.set("n", "<leader>gco", ":Copilot signout<CR>", { desc = "Sing [O]ut Copilot", silent = true })
-			-- vim.g.copilot_no_tab_map = true
-			vim.cmd(":Copilot disable")
-		end,
-	},
-	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			-- Snippet Engine & its associated nvim-cmp source
@@ -69,26 +56,22 @@ return {
 					}),
 				},
 			})
-			-- `/` cmdline setup.
-			cmp.setup.cmdline("/", {
+			-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+			cmp.setup.cmdline({ "/", "?" }, {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = {
 					{ name = "buffer" },
 				},
 			})
-			-- `:` cmdline setup.
+			-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = cmp.config.sources({
 					{ name = "path" },
 				}, {
-					{
-						name = "cmdline",
-						option = {
-							ignore_cmds = { "man", "!" },
-						},
-					},
+					{ name = "cmdline" },
 				}),
+				matching = { disallow_symbol_nonprefix_matching = false },
 			})
 			-- Setup for vim-dadbod
 			cmp.setup.filetype({ "sql" }, {

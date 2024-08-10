@@ -45,8 +45,46 @@ return {
 			require("oil-git-status").setup({
 				show_ignored = true, -- show files that match gitignore with !!
 			})
-			vim.keymap.set("n", "<C-n>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+			vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 			vim.keymap.set("n", "<leader>-", require("oil").toggle_float)
+		end,
+	},
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+		config = function()
+			require("neo-tree").setup({
+				close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
+				popup_border_style = "rounded",
+				filesystem = {
+					filtered_items = {
+						visible = true, -- when true, they will just be displayed differently than normal items
+						hide_dotfiles = false,
+						hide_gitignored = false,
+						hide_hidden = false, -- only works on Windows for hidden files/directories
+					},
+				},
+				event_handlers = {
+					{
+						event = "file_opened",
+						handler = function()
+							require("neo-tree.command").execute({ action = "close" })
+						end,
+					},
+				},
+			})
+
+			vim.keymap.set(
+				"n",
+				"<C-n>",
+				":Neotree filesystem reveal left<CR>",
+				{ desc = "Open Neo-Tree [File] explorer" }
+			)
+			vim.keymap.set("n", "<C-b>", ":Neotree buffers right<CR>", { desc = "Open Neo-Tree [Buffer] explorer" })
 		end,
 	},
 }

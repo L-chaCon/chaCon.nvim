@@ -121,10 +121,9 @@ return {
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				-- tsserver = {},
 				-- TODO: - configutar los LSP de los lenguajes que uso
+				zls = {},
 
 				pyright = {},
-
-				gopls = {},
 
 				lua_ls = {
 					-- cmd = {...},
@@ -153,7 +152,6 @@ return {
 					},
 				},
 			}
-
 			-- Ensure the servers and tools above are installed
 			require("mason").setup()
 
@@ -169,10 +167,10 @@ return {
 				"pylint", --LINTER
 				"mypy", --LINTER
 				"flake8", --LINTER
-				-- GO
-				"gopls", --LSP
-				"goimports", --FORMATTER
-				"golangci-lint", --LINTER
+				-- -- GO
+				-- "gopls", --LSP
+				-- "goimports", --FORMATTER
+				-- "golangci-lint", --LINTER
 				-- MARCKDOWN
 				-- "ltex-ls", --LSP
 				-- "mdformat", -- FORMATTER
@@ -180,8 +178,10 @@ return {
 				-- "jq", -- FORMATTER
 				-- "json-lsp", -- LSP
 				-- YAML
-				"yaml-language-server", -- LSP
-				"yamlfmt", -- FORMATTER
+				-- "yaml-language-server", -- LSP
+				-- "yamlfmt", -- FORMATTER
+				-- ZIG
+				"zls",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
