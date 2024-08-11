@@ -1,11 +1,11 @@
 return {
+	-- TODO: REVISAR COMO FUNCIONA
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = {
 			-- Main Pluggin
 			"mfussenegger/nvim-dap",
 
-			-- TODO: hacer algun comentario
 			"nvim-telescope/telescope-dap.nvim",
 			"theHamsta/nvim-dap-virtual-text",
 			"nvim-neotest/nvim-nio",

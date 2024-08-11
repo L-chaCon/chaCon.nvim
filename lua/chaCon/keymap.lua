@@ -46,7 +46,7 @@ vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
--- TODO: CHANGE THE <C-Space> THIS IS PART OF CMP TO SHOW AUTOCOMPLEATONS
+-- FIX: CHANGE THE <C-Space> THIS IS PART OF CMP TO SHOW AUTOCOMPLEATONS
 -- vim.keymap.set(
 -- 	"n",
 -- 	"<C- >",

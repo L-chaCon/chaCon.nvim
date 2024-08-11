@@ -7,25 +7,40 @@ return {
 				numhl = true,
 			})
 
-			vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { desc = "[G]it [P]review Changes" })
-			vim.keymap.set("n", "<leader>gB", ":Gitsigns blame<CR>", { desc = "[G]it [B]lame" })
+			vim.keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", { desc = "[G]it [P]review Changes" })
+			vim.keymap.set("n", "<leader>gB", "<cmd>Gitsigns blame<cr>", { desc = "[G]it [B]lame" })
 			vim.keymap.set(
 				"n",
 				"<leader>gb",
-				":Gitsigns toggle_current_line_blame<CR>",
+				"<cmd>Gitsigns toggle_current_line_blame<cr>",
 				{ desc = "Disable line [G]it [B]lame" }
 			)
 			vim.keymap.set(
 				"n",
 				"<leader>gtl",
-				":Gitsigns toggle_linehl<CR>",
+				"<cmd>Gitsigns toggle_linehl<cr>",
 				{ desc = "[G]it [T]oggle [L]ine highlight" }
 			)
-			vim.keymap.set("n", "<leader>gtd", ":Gitsigns toggle_deleted<CR>", { desc = "[G]it [T]oggle [D]eleted" })
-			vim.keymap.set("n", "<leader>gaf", ":Gitsigns stage_buffer<CR>", { desc = "[G]it [A]dd current [F]ile" })
-			vim.keymap.set("n", "<leader>gah", ":Gitsigns stage_buffer<CR>", { desc = "[G]it [A]dd current [H]unk" })
-			vim.keymap.set("n", "<leader>ghn", ":Gitsigns next_hunk<CR>", { desc = "[G]it next [H]unk" })
-			vim.keymap.set("n", "<leader>ghN", ":Gitsigns prev_hunk<CR>", { desc = "[G]it previous [H]unk" })
+			vim.keymap.set(
+				"n",
+				"<leader>gtd",
+				"<cmd>Gitsigns toggle_deleted<cr>",
+				{ desc = "[G]it [T]oggle [D]eleted" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>gaf",
+				"<cmd>Gitsigns stage_buffer<cr>",
+				{ desc = "[G]it [A]dd current [F]ile" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>gah",
+				"<cmd>Gitsigns stage_buffer<cr>",
+				{ desc = "[G]it [A]dd current [H]unk" }
+			)
+			vim.keymap.set("n", "<leader>ghn", "<cmd>Gitsigns next_hunk<cr>", { desc = "[G]it next [H]unk" })
+			vim.keymap.set("n", "<leader>ghN", "<cmd>Gitsigns prev_hunk<cr>", { desc = "[G]it previous [H]unk" })
 		end,
 	},
 }

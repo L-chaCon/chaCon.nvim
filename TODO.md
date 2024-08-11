@@ -1,2 +1,3 @@
 - [ ] Agregar Preview De Imganes en Telescope
 - [ ] Terminar el LSP configuration
+- [ ] Debugging tools

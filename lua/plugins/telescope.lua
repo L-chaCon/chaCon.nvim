@@ -15,7 +15,7 @@ return {
 			},
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 			{ "nvim-tree/nvim-web-devicons" },
-			-- TODO: HACER QUE FUnCIONE LA WEA DE LAS IMAGENES§
+			-- FIX: HACER QUE FUnCIONE LA WEA DE LAS IMAGENES
 			{
 				"nvim-telescope/telescope-media-files.nvim",
 				dependencies = { "nvim-lua/popup.nvim" },
@@ -85,26 +85,40 @@ return {
 			"nvim-tree/nvim-web-devicons",
 			"folke/lsp-colors.nvim",
 		},
-		config = function()
-			require("trouble").setup({})
-			vim.keymap.set("n", "<leader>xx", function()
-				require("trouble").toggle()
-			end, { desc = "Toggle" })
-			vim.keymap.set("n", "<leader>xw", function()
-				require("trouble").toggle("workspace_diagnostics")
-			end, { desc = "[W]orkspace Diagnostics" })
-			vim.keymap.set("n", "<leader>xd", function()
-				require("trouble").toggle("document_diagnostics")
-			end, { desc = "[D]ocument Diagnostics" })
-			vim.keymap.set("n", "<leader>xq", function()
-				require("trouble").toggle("quickfix")
-			end, { desc = "[Q]uickfix" })
-			vim.keymap.set("n", "<leader>xl", function()
-				require("trouble").toggle("loclist")
-			end, { desc = "[L]oclist" })
-			vim.keymap.set("n", "gR", function()
-				require("trouble").toggle("lsp_references")
-			end, { desc = "LSP [R]eferences" })
-		end,
+		opts = {},
+		cmd = "Trouble",
+		keys = {
+			{ "<leader>xT", "<CMD>Trouble<CR>", desc = "Trouble" },
+			{
+				"<leader>xx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			},
+			{
+				"<leader>xX",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "Buffer Diagnostics (Trouble)",
+			},
+			{
+				"<leader>cs",
+				"<cmd>Trouble symbols toggle focus=false<cr>",
+				desc = "Symbols (Trouble)",
+			},
+			{
+				"<leader>cl",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "LSP Definitions / references / ... (Trouble)",
+			},
+			{
+				"<leader>xL",
+				"<cmd>Trouble loclist toggle<cr>",
+				desc = "Location List (Trouble)",
+			},
+			{
+				"<leader>xQ",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
+			},
+		},
 	},
 }
