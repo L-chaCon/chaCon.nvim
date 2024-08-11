@@ -37,9 +37,12 @@ return {
 					lsp_doc_border = false, -- add a border to hover docs and signature help
 				},
 				routes = {
-					{
-						view = "notify",
-						filter = { event = "msg_showmode" },
+					view = "mini",
+					filter = {
+						event = "msg_showmode",
+						any = {
+							{ find = "recording" },
+						},
 					},
 				},
 			})
@@ -60,30 +63,30 @@ return {
 		end,
 	},
 	-- HELP PARA keymap
-	{
-		"folke/which-key.nvim",
-		event = "VimEnter", -- Sets the loading event to 'VimEnter'
-		config = function() -- This is the function that runs, AFTER loading
-			require("which-key").setup()
-
-			-- Document existing key chains
-			require("which-key").register({
-				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-				["<leader>b"] = { name = "[B]reakepoint", _ = "which_key_ignore" },
-				["<leader>d"] = { name = "[D]ebuggin", _ = "which_key_ignore" },
-				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-				["<leader>g"] = { name = "[G]it", _ = "which_key_ignore" },
-				["<leader>ga"] = { name = "[G]it [A]dd", _ = "which_key_ignore" },
-				["<leader>gr"] = { name = "[G]it [R]est", _ = "which_key_ignore" },
-				["<leader>gs"] = { name = "[G]it [S]tash", _ = "which_key_ignore" },
-				["<leader>gc"] = { name = "[G]it [C]opilot", _ = "which_key_ignore" },
-				["<leader>n"] = { name = "[N]oise", _ = "which_key_ignore" },
-				["<leader>x"] = { name = "Trouble", _ = "which_key_ignore" },
-			})
-		end,
-	},
+	-- {
+	-- 	"folke/which-key.nvim",
+	-- 	event = "VimEnter", -- Sets the loading event to 'VimEnter'
+	-- 	config = function() -- This is the function that runs, AFTER loading
+	-- 		require("which-key").setup()
+	--
+	-- 		-- Document existing key chains
+	-- 		require("which-key").register({
+	-- 			["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
+	-- 			["<leader>b"] = { name = "[B]reakepoint", _ = "which_key_ignore" },
+	-- 			["<leader>d"] = { name = "[D]ebuggin", _ = "which_key_ignore" },
+	-- 			["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
+	-- 			["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
+	-- 			["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
+	-- 			["<leader>g"] = { name = "[G]it", _ = "which_key_ignore" },
+	-- 			["<leader>ga"] = { name = "[G]it [A]dd", _ = "which_key_ignore" },
+	-- 			["<leader>gr"] = { name = "[G]it [R]est", _ = "which_key_ignore" },
+	-- 			["<leader>gs"] = { name = "[G]it [S]tash", _ = "which_key_ignore" },
+	-- 			["<leader>gc"] = { name = "[G]it [C]opilot", _ = "which_key_ignore" },
+	-- 			["<leader>n"] = { name = "[N]oise", _ = "which_key_ignore" },
+	-- 			["<leader>x"] = { name = "Trouble", _ = "which_key_ignore" },
+	-- 		})
+	-- 	end,
+	-- },
 	-- TODO COMMENTS
 	{
 		"folke/todo-comments.nvim",

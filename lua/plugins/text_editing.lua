@@ -59,4 +59,17 @@ return {
 			--  Check out: https://github.com/echasnovski/mini.nvim
 		end,
 	},
+	-- {
+	-- 	"m4xshen/hardtime.nvim",
+	-- 	dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+	-- 	event = "VeryLazy",
+	-- 	opts = {
+	-- 		disable_mouse = false,
+	-- 	},
+	-- },
+	-- {
+	-- 	"tris203/precognition.nvim",
+	-- 	event = "VeryLazy",
+	-- 	opts = {},
+	-- },
 }
