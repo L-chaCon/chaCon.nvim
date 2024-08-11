@@ -19,7 +19,7 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			-- python = { "isort" },
-			markdown = { "mdformat" },
+			-- markdown = { "mdformat" },
 			-- go = { "goimports", "gofmt" },
 			-- yaml = { "yamlfmt" },
 		},
@@ -28,7 +28,7 @@ return {
 		-- Customize formatters
 		formatters = {
 			shfmt = {
-				prepend_args = { "-i", "2" },
+				prepend_args = { "-i", "4" },
 			},
 		},
 	},

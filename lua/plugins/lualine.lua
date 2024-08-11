@@ -3,6 +3,9 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		require("lualine").setup({
+			options = {
+				theme = "carbonfox",
+			},
 			inactive_sections = {
 				lualine_a = { "buffers" },
 				lualine_b = { "filename" },

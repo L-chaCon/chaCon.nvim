@@ -14,7 +14,6 @@ return {
 		-- Your DBUI configuration
 		vim.g.db_ui_use_nerd_fonts = 1
 		vim.keymap.set("n", "<leader>S", ":DBUI<CR>", { desc = "SQL", silent = true })
-
 		vim.g.db_ui_table_helpers = {
 			mariadb = {
 				List = "SELECT * from {optional_schema}`{table}` LIMIT 200",

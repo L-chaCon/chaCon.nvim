@@ -2,6 +2,12 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Save and source file
+vim.keymap.set("n", "<leader><leader>x", function()
+	vim.cmd("w")
+	vim.cmd("source %")
+end, { desc = "Save and Source" })
+
 -- :Moverse entre los resultados del grep
 vim.keymap.set("n", "<leader>j", ":cprev<CR>", { desc = "Previous grep" })
 vim.keymap.set("n", "<leader>k", ":cnext<CR>", { desc = "Next grep" })
@@ -14,7 +20,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half Page UP" })
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- copiar en visual mode y no perder lo que copiaste
+-- pegar en visual mode y no perder lo que esta ahi
 vim.keymap.set("v", "<leader>p", '"_dP', { desc = "Pegar sin perder lo pegado" })
 
 -- Copiar a clipboard
@@ -40,9 +46,14 @@ vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
-vim.keymap.set(
-	"n",
-	"<C- >",
-	"<cmd>silent !tmux neww ~/.local/scripts/tmux-sessionizer<CR>",
-	{ desc = "Abrir Projecto Tmux" }
-)
+-- FIX: CHANGE THE <C-Space> THIS IS PART OF CMP TO SHOW AUTOCOMPLEATONS
+-- vim.keymap.set(
+-- 	"n",
+-- 	"<C- >",
+-- 	"<cmd>silent !tmux neww ~/.local/scripts/tmux-sessionizer<CR>",
+-- 	{ desc = "Abrir Projecto Tmux" }
+-- )
+
+-- Preview Markdown
+vim.keymap.set("n", "<leader>mv", ":MarkdownPreview<CR>", { desc = "Preview Archivos Marckdown" })
+vim.keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<CR>", { desc = "Stop Preview Marckdown" })

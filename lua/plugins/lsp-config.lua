@@ -8,7 +8,6 @@ return {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 			-- Useful status updates for LSP.
-			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 			{ "j-hui/fidget.nvim", opts = {} },
 		},
 		config = function()
@@ -112,7 +111,6 @@ return {
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
 				-- clangd = {},
-				-- gopls = {},
 				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
@@ -121,10 +119,11 @@ return {
 				--
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				-- tsserver = {},
-				--
+				-- TODO: - configutar los LSP de los lenguajes que uso
+				zls = {},
+
 				pyright = {},
 
-				-- TODO: - configutar los LSP de los lenguajes que uso
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes { ...},
@@ -152,7 +151,6 @@ return {
 					},
 				},
 			}
-
 			-- Ensure the servers and tools above are installed
 			require("mason").setup()
 
@@ -171,6 +169,7 @@ return {
 				-- -- GO
 				-- "gopls", --LSP
 				-- "goimports", --FORMATTER
+				-- "golangci-lint", --LINTER
 				-- MARCKDOWN
 				-- "ltex-ls", --LSP
 				-- "mdformat", -- FORMATTER
@@ -178,8 +177,10 @@ return {
 				-- "jq", -- FORMATTER
 				-- "json-lsp", -- LSP
 				-- YAML
-				"yaml-language-server", -- LSP
-				"yamlfmt", -- FORMATTER
+				-- "yaml-language-server", -- LSP
+				-- "yamlfmt", -- FORMATTER
+				-- ZIG
+				"zls",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
