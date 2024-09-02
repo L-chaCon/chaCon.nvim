@@ -68,9 +68,21 @@ return {
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = { signs = true },
+		opts = {
+			signs = true,
+			keywords = { ARTLOGIC = { icon = "ʌ", color = "#25BE6A", alt = { "FEEDBACK", "CLIENT" } } },
+		},
 		keys = {
-			{ "<leader>st", "<cmd>TodoTelescope<cr>", desc = "[S]earch [T]odo" },
+			{
+				"<leader>st",
+				"<cmd>TodoTelescope keywords=TODO,FIX,NOTE,BUG,FEEDBACK,ARTLOGIC<cr>",
+				desc = "[S]earch [T]odo",
+			},
+			{
+				"<leader>sa",
+				"<cmd>TodoTelescope keywords=TODO,FIX,BUG,FEEDBACK,ARTLOGIC cwd=%:p:h<cr>",
+				desc = "[S]earch Feedback [A]rtlogic",
+			},
 			{ "<leader>xt", "<cmd>Trouble todo<cr>", desc = "Trouble todo" },
 		},
 	},
