@@ -21,7 +21,7 @@ return {
 			python = { "isort" },
 			-- markdown = { "mdformat" },
 			-- go = { "goimports", "gofmt" },
-			-- yaml = { "yamlfmt" },
+			yaml = { "yamlfmt" },
 		},
 		-- Set up format-on-save
 		format_on_save = { timeout_ms = 500, lsp_fallback = true },

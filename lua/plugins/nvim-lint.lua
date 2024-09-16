@@ -4,8 +4,8 @@ return {
 	config = function()
 		require("lint").linters_by_ft = {
 			python = {
-				"flake8",
-				"pylint",
+				-- "flake8",
+				-- "pylint",
 				"mypy",
 			},
 			go = {
