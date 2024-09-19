@@ -14,5 +14,6 @@ return {
 		-- Your DBUI configuration
 		vim.g.db_ui_use_nerd_fonts = 1
 		vim.keymap.set("n", "<leader>S", ":DBUI<CR>", { desc = "SQL", silent = true })
+		vim.g.dbs = { { name = "chaCon", url = "mysql://root@localhost:3306/chacon" } }
 	end,
 }
