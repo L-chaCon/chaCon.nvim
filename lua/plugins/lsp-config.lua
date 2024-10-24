@@ -129,7 +129,7 @@ return {
 					},
 				},
 				-- ZIG
-				zls = {},
+				-- zls = {},
 
 				-- LUA
 				lua_ls = {
