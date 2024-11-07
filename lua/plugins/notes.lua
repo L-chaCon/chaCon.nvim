@@ -4,8 +4,8 @@ return {
 		version = "*", -- recommended, use latest release instead of latest commit
 		lazy = true,
 		event = {
-			"BufReadPre " .. vim.fn.expand("~") .. "/personal/notes/*.md",
-			"BufNewFile " .. vim.fn.expand("~") .. "/personal/notes/*.md",
+			"BufReadPre " .. vim.fn.expand("~") .. "/workspace/notes/*.md",
+			"BufNewFile " .. vim.fn.expand("~") .. "/workspace/notes/*.md",
 		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -25,8 +25,8 @@ return {
 		opts = {
 			workspaces = {
 				{
-					name = "personal",
-					path = "~/personal/notes",
+					name = "Notes",
+					path = "~/workspace/notes",
 				},
 			},
 

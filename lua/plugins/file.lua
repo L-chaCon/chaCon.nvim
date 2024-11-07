@@ -36,6 +36,7 @@ return {
 				},
 				columns = {
 					{ "icon", add_padding = true },
+					"type",
 					"permissions",
 					"size",
 					"mtime",
