@@ -71,6 +71,8 @@ return {
 		opts = {
 			signs = true,
 			keywords = { ARTLOGIC = { icon = "ʌ", color = "#25BE6A", alt = { "FEEDBACK", "CLIENT" } } },
+			keywords = { chaCon = { icon = "䷁", color = "chaCon" } },
+			colors = { chaCon = { "#25BE6A" } },
 		},
 		keys = {
 			{

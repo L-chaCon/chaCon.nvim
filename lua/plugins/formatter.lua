@@ -31,9 +31,15 @@ return {
 				prepend_args = { "-i", "4" },
 			},
 		},
+		init = function()
+			-- If you want the formatexpr, here is the place to set it
+			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+		end,
 	},
-	init = function()
-		-- If you want the formatexpr, here is the place to set it
-		vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-	end,
+	-- PARA COMMENTAR CODIGO
+	{
+		"numToStr/Comment.nvim",
+		lazy = false,
+		opts = {},
+	},
 }

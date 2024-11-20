@@ -93,13 +93,8 @@ return {
 				end,
 			})
 
-			-- LSP servers and clients are able to communicate to each other what features they support.
-			--  By default, Neovim doesn't support everything that is in the LSP Specification.
-			--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
-			--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
 			-- Enable the following language servers
 			--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 			--
@@ -110,43 +105,47 @@ return {
 			--  - settings (table): Override the default settings passed when initializing the server.
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
-				-- clangd = {},
-				-- rust_analyzer = {},
-				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-				--
-				-- Some languages (like typescript) have entire language plugins that can be useful:
-				--    https://github.com/pmizio/typescript-tools.nvim
-				--
-				-- But for many setups, the LSP (`tsserver`) will work just fine
-				-- tsserver = {},
-				-- TODO: - configutar los LSP de los lenguajes que uso
-				zls = {},
+				-- PYTHON
+				ruff = {
+					init_options = {
+						settings = {
+							lineLength = 100,
+							exclude = { "**/tests/**" },
+							configurationPreference = "filesystemFirst",
+						},
+					},
+				},
+				pyright = {
+					settings = {
+						pyright = {
+							disableOrganizeImports = true, -- Using Ruff
+						},
+						python = {
+							analysis = {
+								ignore = { "*" }, -- Using Ruff
+								typeCheckingMode = "off", -- Using mypy
+							},
+						},
+					},
+				},
+				-- ZIG
+				-- zls = {},
 
-				pyright = {},
-
+				-- LUA
 				lua_ls = {
-					-- cmd = {...},
-					-- filetypes { ...},
-					-- capabilities = {},
 					settings = {
 						Lua = {
 							runtime = { version = "LuaJIT" },
 							workspace = {
 								checkThirdParty = false,
-								-- Tells lua_ls where to find all the Lua files that you have loaded
-								-- for your neovim configuration.
 								library = {
 									"${3rd}/luv/library",
 									unpack(vim.api.nvim_get_runtime_file("", true)),
 								},
-								-- If lua_ls is really slow on your computer, you can try this instead:
-								-- library = { vim.env.VIMRUNTIME },
 							},
 							completion = {
 								callSnippet = "Replace",
 							},
-							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							-- diagnostics = { disable = { 'missing-fields' } },
 						},
 					},
 				},
@@ -160,25 +159,13 @@ return {
 				"lua_ls", --LSP
 				"stylua", --FORMATTER
 				--PYTON,
-				"pyright", --LSP
-				"black", --FORMATTER
-				"isort", --FORMATTER
-				"pylint", --LINTER
-				"mypy", --LINTER
-				"flake8", --LINTER
-				-- -- GO
-				-- "gopls", --LSP
-				-- "goimports", --FORMATTER
-				-- "golangci-lint", --LINTER
-				-- MARCKDOWN
-				-- "ltex-ls", --LSP
-				-- "mdformat", -- FORMATTER
-				-- -- JSON
-				-- "jq", -- FORMATTER
-				-- "json-lsp", -- LSP
+				"ruff",
+				"mypy",
+				"pyright",
+				"isort",
 				-- YAML
-				-- "yaml-language-server", -- LSP
-				-- "yamlfmt", -- FORMATTER
+				"yaml-language-server", -- LSP
+				"yamlfmt", -- FORMATTER
 				-- ZIG
 				"zls",
 			})
