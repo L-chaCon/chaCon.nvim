@@ -20,7 +20,12 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-require("chaCon")
+-- Base Settings
+require("chaCon.set")
+-- Base Keymaps
+require("chaCon.keymap")
+-- Base Globals
+require("chaCon.globals") -- TODO: MIRAR BIEN ESTO QUE ES PARA HACER PLUGINS
 
 -- Setup lazy.nvim
 require("lazy").setup({
