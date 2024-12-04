@@ -38,10 +38,4 @@ return {
 			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 		end,
 	},
-	-- PARA COMMENTAR CODIGO
-	{
-		"numToStr/Comment.nvim",
-		lazy = false,
-		opts = {},
-	},
 }

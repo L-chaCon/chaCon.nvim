@@ -1,16 +1,8 @@
--- leader
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- Save and source file
 vim.keymap.set("n", "<leader><leader>x", function()
 	vim.cmd("w")
 	vim.cmd("source %")
 end, { desc = "Save and Source" })
-
--- :Moverse entre los resultados del grep
-vim.keymap.set("n", "<leader>j", ":cprev<CR>", { desc = "Previous grep" })
-vim.keymap.set("n", "<leader>k", ":cnext<CR>", { desc = "Next grep" })
 
 -- Moverse media pagina y centrar
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half Page DOWN" })

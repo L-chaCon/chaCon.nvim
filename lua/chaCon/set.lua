@@ -1,7 +1,7 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
-vim.o.cursorline = true
+vim.o.cursorline = false
 
 -- Set highlight on search
 vim.o.hlsearch = false
