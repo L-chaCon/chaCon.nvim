@@ -50,5 +50,7 @@ require("lazy").setup({
 		{ import = "plugins.lint" },
 		-- Tmux
 		{ import = "plugins.tmux" },
+		-- Miscellaneous
+		{ import = "plugins.misc" },
 	},
 })
