@@ -1,6 +1,6 @@
 return {
 	"stevearc/oil.nvim",
-	enabled = false,
+	enabled = true,
 	opts = {},
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
@@ -68,7 +68,7 @@ return {
 		require("oil-git-status").setup({
 			show_ignored = true, -- show files that match gitignore with !!
 		})
-		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+		vim.keymap.set("n", "—", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 		vim.keymap.set("n", "<leader>-", require("oil").toggle_float)
 	end,
 }

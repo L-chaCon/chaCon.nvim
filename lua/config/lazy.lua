@@ -52,5 +52,7 @@ require("lazy").setup({
 		{ import = "plugins.tmux" },
 		-- Miscellaneous
 		{ import = "plugins.misc" },
+		-- Python
+		{ import = "plugins.python" },
 	},
 })

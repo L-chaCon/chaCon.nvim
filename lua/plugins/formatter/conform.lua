@@ -8,13 +8,16 @@ return {
 				-- Customize or remove this keymap to your liking
 				"<leader>=",
 				function()
-					require("conform").format({ async = true, lsp_fallback = true })
+					require("conform").format({ async = true })
 				end,
 				mode = "",
 				desc = "Format buffer",
 			},
 		},
 		-- Everything in opts will be passed to setup()
+
+		---@module "conform"
+		---@type conform.setupOpts
 		opts = {
 			-- Define your formatters
 			formatters_by_ft = {
@@ -24,8 +27,11 @@ return {
 				-- go = { "goimports", "gofmt" },
 				yaml = { "yamlfmt" },
 			},
+			default_format_opts = {
+				lsp_format = "fallback",
+			},
 			-- Set up format-on-save
-			format_on_save = { timeout_ms = 500, lsp_fallback = true },
+			format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
 			-- Customize formatters
 			formatters = {
 				shfmt = {
