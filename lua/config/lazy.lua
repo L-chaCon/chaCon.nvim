@@ -32,6 +32,8 @@ require("lazy").setup({
 	spec = {
 		-- Core
 		{ import = "plugins" },
+		-- Telescope
+		{ import = "plugins.telescope.telescope" },
 		-- UI
 		{ import = "plugins.ui" },
 		-- Formatter

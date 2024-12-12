@@ -23,6 +23,23 @@ return {
 		},
 		config = function()
 			require("telescope").setup({
+				pickers = {
+					find_files = {
+						theme = "ivy",
+					},
+					diagnostics = {
+						theme = "ivy",
+					},
+					live_grep = {
+						theme = "ivy",
+					},
+					grep_string = {
+						theme = "ivy",
+					},
+					lsp_references = {
+						theme = "cursor",
+					},
+				},
 				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown(),
@@ -41,6 +58,8 @@ return {
 			pcall(require("telescope").load_extension, "fzf")
 			pcall(require("telescope").load_extension, "ui-select")
 			pcall(require("telescope").load_extension, "media_files")
+			-- Here are my custom pickers
+			require("plugins.telescope.custom").setup()
 
 			-- See `:help telescope.builtin`
 			local builtin = require("telescope.builtin")
@@ -53,12 +72,12 @@ return {
 			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 			vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 			vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+			vim.keymap.set("n", "<leader><leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
 			-- Slightly advanced example of overriding default behavior and theme
 			vim.keymap.set("n", "<leader>/", function()
 				-- You can pass additional configuration to telescope to change theme, layout, etc.
-				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_ivy({
 					winblend = 10,
 					previewer = false,
 				}))
@@ -77,6 +96,10 @@ return {
 			vim.keymap.set("n", "<leader>sn", function()
 				builtin.find_files({ cwd = vim.fn.stdpath("config") })
 			end, { desc = "[S]earch [N]eovim files" })
+			-- Shortcut for searching your plugins lazy files
+			vim.keymap.set("n", "<leader>sl", function()
+				builtin.find_files({ cwd = vim.fn.stdpath("data"), "lazy" })
+			end, { desc = "[S]earch [L]azy files" })
 		end,
 	},
 	{

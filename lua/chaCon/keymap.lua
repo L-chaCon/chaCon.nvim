@@ -1,8 +1,7 @@
 -- Save and source file
-vim.keymap.set("n", "<leader><leader>x", function()
-	vim.cmd("w")
-	vim.cmd("source %")
-end, { desc = "Save and Source" })
+vim.keymap.set("n", "<leader><leader>X", ":source %<CR>", { desc = "Save and Source" })
+vim.keymap.set("n", "<leader><leader>x", ":.lua<CR>")
+vim.keymap.set("v", "<leader><leader>x", ":lua<CR>")
 
 -- Moverse media pagina y centrar
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half Page DOWN" })
