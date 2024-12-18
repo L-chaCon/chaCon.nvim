@@ -6,7 +6,7 @@ return {
 		config = function()
 			local options = {
 				styles = {
-					comments = "italic,bold",
+					comments = "italic",
 					keywords = "bold",
 				},
 				inverse = {
