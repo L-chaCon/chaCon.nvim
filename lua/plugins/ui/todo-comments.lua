@@ -13,4 +13,10 @@ return {
 			{ "<leader>xt", "<cmd>Trouble todo<cr>", desc = "Trouble todo" },
 		},
 	},
+	{
+		"brenoprata10/nvim-highlight-colors",
+		config = function()
+			require("nvim-highlight-colors").setup({})
+		end,
+	},
 }
