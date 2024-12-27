@@ -1,6 +1,8 @@
 -- [[ Setting options ]]
--- See `:help vim.o`
+-- Spelling
+vim.opt.spelllang = "en_gb"
 
+-- See `:help vim.o`
 vim.o.cursorline = false
 
 -- Set highlight on search

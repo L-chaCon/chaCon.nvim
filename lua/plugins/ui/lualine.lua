@@ -1,21 +1,19 @@
 return {
 	{
-		"Bekaboo/dropbar.nvim",
-		dependencies = {
-			"nvim-telescope/telescope-fzf-native.nvim",
-		},
-	},
-	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
+			local spelling_component = function()
+				---@diagnostic disable-next-line: undefined-field
+				return "✎ -> " .. (vim.opt.spell:get() and "On" or "Off")
+			end
 			require("lualine").setup({
 				sections = {
 					lualine_a = { "mode" },
 					lualine_b = { "branch", "diff", "diagnostics", "venv-selector" },
 					lualine_c = { "filename" },
 					lualine_x = { "encoding", "fileformat", "filetype" },
-					lualine_y = { "progress" },
+					lualine_y = { "progress", spelling_component },
 					lualine_z = { "location" },
 				},
 				inactive_sections = {
