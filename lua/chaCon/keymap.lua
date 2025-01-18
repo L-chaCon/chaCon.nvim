@@ -54,6 +54,9 @@ vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 -- 	"<cmd>silent !tmux neww ~/.local/scripts/tmux-sessionizer<CR>",
 -- 	{ desc = "Abrir Projecto Tmux" }
 -- )
+-- -- Preview Markdown
+-- vim.keymap.set("n", "<leader>mv", ":MarkdownPreview<CR>", { desc = "Preview Archivos Marckdown" })
+-- vim.keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<CR>", { desc = "Stop Preview Marckdown" })
 
 -- Preview Markdown
 vim.keymap.set("n", "<leader>mv", ":MarkdownPreview<CR>", { desc = "Preview Archivos Marckdown" })
