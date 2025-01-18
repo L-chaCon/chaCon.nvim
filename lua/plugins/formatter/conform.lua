@@ -1,5 +1,6 @@
 return {
   {
+
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
@@ -21,6 +22,7 @@ return {
     ---@diagnostic disable-next-line: undefined-doc-name
     ---@type conform.setupOpts
     opts = {
+
       -- Define your formatters
       formatters_by_ft = {
         lua = { "stylua" },
@@ -44,6 +46,21 @@ return {
     init = function()
       -- If you want the formatexpr, here is the place to set it
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+
+      vim.api.nvim_create_autocmd("BufEnter", {
+        callback = function()
+          local ft = vim.o.filetype
+          if ft == "lua" then
+            vim.o.tabstop = 2
+            vim.o.shiftwidth = 2
+            vim.o.softtabstop = 2
+          else
+            vim.o.tabstop = 4
+            vim.o.shiftwidth = 4
+            vim.o.softtabstop = 4
+          end
+        end,
+      })
     end,
   },
 }

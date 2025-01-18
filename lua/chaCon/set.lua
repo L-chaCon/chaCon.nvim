@@ -33,11 +33,8 @@ vim.o.timeoutlen = 300
 vim.o.completeopt = "menuone,noselect"
 
 -- Set tabs spaces
-vim.o.tabstop = 4
 vim.o.expandtab = true
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.o.colorcolumn = "80"
+vim.o.colorcolumn = "80" --If it is 80, is not line inclusive
 
 -- Limite superior
 vim.o.scrolloff = 10
@@ -46,11 +43,11 @@ vim.o.updatetime = 50
 
 -- HIGHLIGHT YANK
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
 
 -- Mouse Options
