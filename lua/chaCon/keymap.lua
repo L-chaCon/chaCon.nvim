@@ -58,6 +58,6 @@ vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 -- vim.keymap.set("n", "<leader>mv", ":MarkdownPreview<CR>", { desc = "Preview Archivos Marckdown" })
 -- vim.keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<CR>", { desc = "Stop Preview Marckdown" })
 
--- Preview Markdown
-vim.keymap.set("n", "<leader>mv", ":MarkdownPreview<CR>", { desc = "Preview Archivos Marckdown" })
-vim.keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<CR>", { desc = "Stop Preview Marckdown" })
+-- QuickFix
+vim.keymap.set("n", "∆", "<cmd>:cnext<cr>")
+vim.keymap.set("n", "˚", "<cmd>:cprev<cr>")
