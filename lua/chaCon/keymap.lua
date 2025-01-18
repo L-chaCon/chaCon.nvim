@@ -5,12 +5,12 @@ vim.keymap.set("v", "<leader><leader>x", ":lua<CR>")
 
 -- Spelling toggle
 vim.keymap.set("n", "<leader><leader>z", function()
-	---@diagnostic disable-next-line: undefined-field
-	if vim.opt.spell:get() then
-		vim.opt.spell = false
-	else
-		vim.opt.spell = true
-	end
+  ---@diagnostic disable-next-line: undefined-field
+  if vim.opt.spell:get() then
+    vim.opt.spell = false
+  else
+    vim.opt.spell = true
+  end
 end, { desc = "Toggle Spelling" })
 
 -- Moverse media pagina y centrar
