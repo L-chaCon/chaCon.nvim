@@ -27,6 +27,7 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "ruff_format" },
+        json = { "jq" },
       },
       default_format_opts = {
         lsp_format = "fallback",
@@ -41,6 +42,7 @@ return {
         shfmt = {
           prepend_args = { "-i", "4" },
         },
+        jq = { "--sort-keys", "--indent", "2" },
       },
     },
     init = function()
@@ -51,6 +53,10 @@ return {
         callback = function()
           local ft = vim.o.filetype
           if ft == "lua" then
+            vim.o.tabstop = 2
+            vim.o.shiftwidth = 2
+            vim.o.softtabstop = 2
+          elseif ft == "json" then
             vim.o.tabstop = 2
             vim.o.shiftwidth = 2
             vim.o.softtabstop = 2
