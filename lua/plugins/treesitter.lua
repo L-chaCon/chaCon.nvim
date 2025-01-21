@@ -14,6 +14,7 @@ return {
         "bash",
         "css",
         "html",
+        "jsonc",
         "markdown",
         "vim",
         "vimdoc",
