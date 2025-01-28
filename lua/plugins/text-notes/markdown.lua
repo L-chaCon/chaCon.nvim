@@ -1,9 +1,9 @@
 return {
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    opts = { enable = true },
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-  },
+  -- {
+  --   "MeanderingProgrammer/render-markdown.nvim",
+  --   opts = { enable = false },
+  --   dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+  -- },
   -- FIX: NO ESTA FUNCIONANDO BIEN
   -- {
   -- 	"iamcco/markdown-preview.nvim",

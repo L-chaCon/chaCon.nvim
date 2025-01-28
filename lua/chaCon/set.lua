@@ -52,3 +52,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Mouse Options
 vim.o.mousemoveevent = true
+
+-- Conceal Level for Obsidian
+vim.opt.conceallevel = 1

@@ -20,6 +20,7 @@ return {
     { "<leader>zp", "<cmd>ObsidianPasteImg<cr>", desc = "Paste Image to Note" },
     { "<leader>zf", "<cmd>ObsidianFollowLink [vsplit]<cr>", desc = "Follow Link" },
     { "<leader>zb", "<cmd>ObsidianBacklinks<cr>", desc = "Back Link" },
+    { "<leader>zs", "<cmd>ObsidianTags<cr>", desc = "Back Link" },
   },
   opts = {
     workspaces = {
@@ -72,7 +73,7 @@ return {
     end,
     -- disable UI to use
     ui = {
-      enable = false,
+      enable = true,
     },
   },
 }
