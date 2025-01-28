@@ -60,10 +60,22 @@ return {
             vim.o.tabstop = 2
             vim.o.shiftwidth = 2
             vim.o.softtabstop = 2
-          else
+          elseif ft == "python" then
             vim.o.tabstop = 4
             vim.o.shiftwidth = 4
             vim.o.softtabstop = 4
+          elseif ft == "rust" then
+            vim.o.tabstop = 4
+            vim.o.shiftwidth = 4
+            vim.o.softtabstop = 4
+          elseif ft == "terraform" then
+            vim.o.tabstop = 2
+            vim.o.shiftwidth = 2
+            vim.o.softtabstop = 2
+            -- else
+            --   vim.o.tabstop = 4
+            --   vim.o.shiftwidth = 4
+            --   vim.o.softtabstop = 4
           end
         end,
       })

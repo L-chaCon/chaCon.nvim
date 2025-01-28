@@ -124,6 +124,18 @@ return {
           },
         },
 
+        -- Terraform
+        terraformls = {
+          after = function()
+            vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+              pattern = { "*.tf", "*.tfvars" },
+              callback = function()
+                vim.lsp.buf.format()
+              end,
+            })
+          end,
+        },
+
         -- Rust
         rust_analyzer = {
           filetypes = { "rust" },
@@ -166,6 +178,8 @@ return {
         --PYTON,
         "pyright",
         "ruff", -- LINT/FORMATTER
+        -- TERRAFORM
+        "terraformls",
         -- RUST
         "rust_analyzer", --LSP
       })
@@ -184,6 +198,22 @@ return {
           end,
         },
       })
+
+      local log = require("plenary.log").new({
+        plugin = "lsp_custom_after", -- Name of the log file
+        level = "debug", -- Log level: trace, debug, info, warn, error
+        use_console = false,
+      })
+
+      for key, value in pairs(servers) do
+        if value["after"] then
+          log.info("Logging function reference for:", key)
+          log.debug("Function reference:", value["after"]) -- Logs the reference
+          log.info("Calling the function...")
+          value["after"]() -- Call the function
+          log.info("Function executed successfully.")
+        end
+      end
     end,
   },
 }
