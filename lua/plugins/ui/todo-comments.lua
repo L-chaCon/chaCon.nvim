@@ -10,7 +10,7 @@ return {
     },
     keys = {
       { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "[S]earch [T]odo" },
-      { "<leader>xt", "<cmd>Trouble todo<cr>", desc = "Trouble todo" },
+      { "<leader>xt", "<cmd>Trouble todo toggle win.size=20<cr>", desc = "Trouble todo" },
     },
   },
   {
