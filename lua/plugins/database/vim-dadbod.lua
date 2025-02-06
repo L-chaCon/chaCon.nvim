@@ -21,7 +21,10 @@ return {
   init = function()
     -- Your DBUI configuration
     vim.g.db_ui_use_nerd_fonts = 1
-    vim.keymap.set("n", "<leader>S", ":DBUI<CR>", { desc = "SQL", silent = true })
+    vim.g.db_ui_execute_on_save = 0
+    vim.keymap.set("n", "<leader>S", ":DBUI<CR>", { desc = "Databases UI", silent = true })
+    vim.keymap.set("n", "<leader>mt", ":DBUIToggle<CR>", { desc = "Toggle DB", silent = true })
+    vim.keymap.set("n", "<leader>mi", ":DBUILastQueryInfo<CR>", { desc = "Info On Last Query", silent = true })
     -- vim.g.dbs = { { name = "some_name", url = "some_url" } }
   end,
 }
