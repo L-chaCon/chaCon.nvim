@@ -43,39 +43,40 @@ return {
           prepend_args = { "-i", "4" },
         },
         jq = { "--sort-keys", "--indent", "2" },
+        sqlfuff = {}, -- TODO: Configurar el formateo, o chacjar como se configura
       },
     },
     init = function()
       -- If you want the formatexpr, here is the place to set it
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
+      -- Instructions before entering a buffer
+      local in_list = vim.tbl_contains
+      local two_indent = {
+        "lua",
+        "json",
+        "terraform",
+        "sql",
+      }
+      local four_indent = {
+        "python",
+        "rust",
+      }
       vim.api.nvim_create_autocmd("BufEnter", {
         callback = function()
           local ft = vim.o.filetype
-          if ft == "lua" then
+          if in_list(two_indent, ft) then
             vim.o.tabstop = 2
             vim.o.shiftwidth = 2
             vim.o.softtabstop = 2
-          elseif ft == "json" then
-            vim.o.tabstop = 2
-            vim.o.shiftwidth = 2
-            vim.o.softtabstop = 2
-          elseif ft == "python" then
+          elseif in_list(four_indent, ft) then
             vim.o.tabstop = 4
             vim.o.shiftwidth = 4
             vim.o.softtabstop = 4
-          elseif ft == "rust" then
-            vim.o.tabstop = 4
-            vim.o.shiftwidth = 4
-            vim.o.softtabstop = 4
-          elseif ft == "terraform" then
+          else
             vim.o.tabstop = 2
             vim.o.shiftwidth = 2
             vim.o.softtabstop = 2
-            -- else
-            --   vim.o.tabstop = 4
-            --   vim.o.shiftwidth = 4
-            --   vim.o.softtabstop = 4
           end
         end,
       })

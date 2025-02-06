@@ -102,7 +102,7 @@ return {
         ruff = {
           init_options = {
             settings = {
-              lineLength = 120,
+              lineLength = 80,
               exclude = { "**/tests/**" },
               configurationPreference = "filesystemFirst",
               organizeImports = false,
