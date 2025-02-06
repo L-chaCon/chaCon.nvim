@@ -61,3 +61,14 @@ vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 -- QuickFix
 vim.keymap.set("n", "∆", "<cmd>:cnext<cr>")
 vim.keymap.set("n", "˚", "<cmd>:cprev<cr>")
+
+-- Python
+vim.keymap.set("n", "<leader>fp", function()
+  vim.opt.foldmethod = "indent"
+  ---@diagnostic disable-next-line: undefined-field
+  if vim.opt.foldenable:get() then
+    vim.opt.foldenable = false
+  else
+    vim.opt.foldenable = true
+  end
+end, { silent = true, desc = "[F]old for [P]ython" })

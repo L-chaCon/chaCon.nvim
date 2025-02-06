@@ -2,6 +2,9 @@
 -- Spelling
 vim.opt.spelllang = "en_gb"
 
+-- Fold
+vim.opt.foldenable = false
+
 -- See `:help vim.o`
 vim.o.cursorline = false
 
