@@ -58,3 +58,6 @@ vim.o.mousemoveevent = true
 
 -- Conceal Level for Obsidian
 vim.opt.conceallevel = 1
+
+-- Python host
+vim.g.python3_host_prog = vim.fn.expand("~") .. "/.pyenv/versions/nvim/bin/python"

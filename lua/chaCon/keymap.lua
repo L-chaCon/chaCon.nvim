@@ -13,6 +13,16 @@ vim.keymap.set("n", "<leader><leader>z", function()
   end
 end, { desc = "Toggle Spelling" })
 
+-- Relativenumber toggle
+vim.keymap.set("n", "<leader>tr", function()
+  ---@diagnostic disable-next-line: undefined-field
+  if vim.opt.relativenumber:get() then
+    vim.opt.relativenumber = false
+  else
+    vim.opt.relativenumber = true
+  end
+end, { desc = "[T]eam toggle [R]elative lines" })
+
 -- Moverse media pagina y centrar
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half Page DOWN" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half Page UP" })

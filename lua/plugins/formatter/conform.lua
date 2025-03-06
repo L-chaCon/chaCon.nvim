@@ -22,12 +22,12 @@ return {
     ---@diagnostic disable-next-line: undefined-doc-name
     ---@type conform.setupOpts
     opts = {
-
       -- Define your formatters
       formatters_by_ft = {
         lua = { "stylua" },
-        python = { "ruff_format" },
+        python = { "ruff_fix", "ruff_format" },
         json = { "jq" },
+        sql = { "sqlfluff" },
       },
       default_format_opts = {
         lsp_format = "fallback",
@@ -36,6 +36,8 @@ return {
       format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
       -- Customize formatters
       formatters = {
+        ruff_fix = {},
+        ruff_format = {},
         stylua = {
           prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
         },
@@ -61,6 +63,7 @@ return {
       local four_indent = {
         "python",
         "rust",
+        "bash",
       }
       vim.api.nvim_create_autocmd("BufEnter", {
         callback = function()
