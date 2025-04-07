@@ -23,6 +23,19 @@ vim.keymap.set("n", "<leader>tr", function()
   end
 end, { desc = "[T]eam toggle [R]elative lines" })
 
+-- Conceal level toggle
+vim.keymap.set("n", "<leader>tc", function()
+  ---@diagnostic disable-next-line: undefined-field
+  if vim.opt.conceallevel:get() == 0 then
+    vim.opt.conceallevel = 1
+  else
+    vim.opt.conceallevel = 0
+  end
+end, { desc = "[T]eam toggle [C]onceal levels" })
+
+--SAVE
+vim.keymap.set("n", "<C-s>", "<cmd>:w<CR>", { desc = "Save", silent = true })
+
 -- Moverse media pagina y centrar
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half Page DOWN" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half Page UP" })
