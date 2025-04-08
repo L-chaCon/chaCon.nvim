@@ -27,7 +27,6 @@ return {
         lua = { "stylua" },
         python = { "ruff_fix", "ruff_format" },
         json = { "jq" },
-        sql = { "sqlfluff" },
       },
       default_format_opts = {
         lsp_format = "fallback",

@@ -16,7 +16,7 @@ return {
       local palettes = {
         carbonfox = {
           bg1 = "#000000",
-          bg2 = "#0a0a0a",
+          bg2 = "#1f1f1f",
           comment = "#a5afc2",
         },
       }

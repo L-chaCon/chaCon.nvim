@@ -56,5 +56,7 @@ require("lazy").setup({
     { import = "plugins.misc" },
     -- Python
     { import = "plugins.python" },
+    -- DevContainer
+    { import = "plugins.devcontainer" },
   },
 })
