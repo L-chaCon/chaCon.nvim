@@ -14,14 +14,9 @@
 - [mason-tool-installer](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 
-**Linter:**
-- [nvim-lint](https://github.com/mfussenegger/nvim-lint)
-
 **Text Eedition:**
 - [Comment.nvim](https://github.com/numToStr/Comment.nvim)
-<!-- - [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) -->
-<!-- TODO: ADD THIS PLUGING -->
-- [mini.nvim](https://github.com/echasnovski/mini.nvim)
+<!-- - [mini.nvim](https://github.com/echasnovski/mini.nvim) -->
 - [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim)
 - [treesj](https://github.com/Wansmer/treesj)
 
