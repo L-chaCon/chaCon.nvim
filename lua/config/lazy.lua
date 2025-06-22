@@ -56,6 +56,8 @@ require("lazy").setup({
     { import = "plugins.database" },
     -- UI
     { import = "plugins.ui" },
+    -- AI
+    { import = "plugins.ai" },
     -- Miscellaneous
     { import = "plugins.misc" },
   },
