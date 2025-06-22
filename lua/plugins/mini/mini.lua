@@ -2,7 +2,7 @@ return {
   "echasnovski/mini.nvim",
   version = "*",
   config = function()
-    require("mini.comment")
+    require("mini.comment").setup({})
 
     -- NOTE: This is for `code-companion`
     local diff = require("mini.diff")
