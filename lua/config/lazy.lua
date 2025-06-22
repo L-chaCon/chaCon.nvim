@@ -50,6 +50,8 @@ require("lazy").setup({
     { import = "plugins.git" },
     -- Python
     { import = "plugins.python" },
+    -- MINI
+    { import = "plugins.mini" },
     -- Database
     { import = "plugins.database" },
     -- UI
