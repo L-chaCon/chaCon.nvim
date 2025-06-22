@@ -55,14 +55,15 @@ return {
       local in_list = vim.tbl_contains
       local two_indent = {
         "lua",
-        "json",
-        "terraform",
         "sql",
       }
       local four_indent = {
         "python",
         "rust",
         "bash",
+        "sh",
+        "go",
+        "json",
       }
       vim.api.nvim_create_autocmd("BufEnter", {
         callback = function()

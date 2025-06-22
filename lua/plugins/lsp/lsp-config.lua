@@ -102,10 +102,10 @@ return {
         ruff = {
           init_options = {
             settings = {
-              lineLength = 80,
+              lineLength = 79,
+              logLevel = "debug",
               exclude = { "**/tests/**" },
               configurationPreference = "filesystemFirst",
-              organizeImports = false,
             },
           },
         },
@@ -124,17 +124,8 @@ return {
           },
         },
 
-        -- Terraform
-        terraformls = {
-          after = function()
-            vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-              pattern = { "*.tf", "*.tfvars" },
-              callback = function()
-                vim.lsp.buf.format()
-              end,
-            })
-          end,
-        },
+        -- GO
+        gopls = {},
 
         -- Rust
         rust_analyzer = {
@@ -175,11 +166,11 @@ return {
         -- LUA
         "lua_ls", --LSP
         "stylua", --FORMATTER
-        --PYTON,
+        --PYTON
         "pyright",
         "ruff", -- LINT/FORMATTER
-        -- TERRAFORM
-        "terraformls",
+        -- GO
+        "gopls",
         -- RUST
         "rust_analyzer", --LSP
       })
