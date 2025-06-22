@@ -16,6 +16,7 @@ return {
         "html",
         "jsonc",
         "markdown",
+        "markdown_inline",
         "vim",
         "vimdoc",
         "yaml",

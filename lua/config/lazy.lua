@@ -30,33 +30,31 @@ require("chaCon.globals") -- TODO: MIRAR BIEN ESTO QUE ES PARA HACER PLUGINS
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    -- Core
-    { import = "plugins" },
     -- Telescope
     { import = "plugins.telescope.telescope" },
-    -- UI
-    { import = "plugins.ui" },
-    -- Formatter
-    { import = "plugins.formatter" },
+    -- Treesitter
+    { import = "plugins.treesitter" },
     -- LSP
     { import = "plugins.lsp" },
+    -- Linting
+    { import = "plugins.lint" },
+    -- Formatter
+    { import = "plugins.formatter" },
+    -- Tmux
+    { import = "plugins.tmux" },
     -- Text Manipulation and note taking
     { import = "plugins.text-notes" },
     -- File Management
     { import = "plugins.file-management" },
     -- Git
     { import = "plugins.git" },
-    -- Database
-    { import = "plugins.database" },
-    -- Linting
-    { import = "plugins.lint" },
-    -- Tmux
-    { import = "plugins.tmux" },
-    -- Miscellaneous
-    { import = "plugins.misc" },
     -- Python
     { import = "plugins.python" },
-    -- DevContainer
-    { import = "plugins.devcontainer" },
+    -- Database
+    { import = "plugins.database" },
+    -- UI
+    { import = "plugins.ui" },
+    -- Miscellaneous
+    { import = "plugins.misc" },
   },
 })
