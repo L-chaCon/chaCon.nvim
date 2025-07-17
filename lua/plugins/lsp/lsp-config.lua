@@ -207,4 +207,130 @@ return {
       end
     end,
   },
+
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   config = function()
+  --     vim.api.nvim_create_autocmd("LspAttach", {
+  --       group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+  --       callback = function(event)
+  --         local map = function(keys, func, desc)
+  --           vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+  --         end
+  --         local telescope_theme = require("telescope.themes").get_ivy()
+  --         map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+  --         map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+  --         map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+  --         map("<leader>lD", require("telescope.builtin").lsp_type_definitions, "[L]SP Type [D]efinition")
+  --         map("<leader>lds", require("telescope.builtin").lsp_document_symbols, "[L]SP [D]ocument [S]ymbols")
+  --         map("<leader>lws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[L]SP [W]orkspace [S]ymbols")
+  --         map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+  --         map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+  --         map("K", vim.lsp.buf.hover, "Hover Documentation")
+  --         -- WARN: This is not Goto Definition, this is Goto Declaration.
+  --         --  For example, in C this would take you to the header
+  --         map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+  --
+  --         -- Diagnostic keymaps
+  --         vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+  --         vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+  --         vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+  --         vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+  --
+  --         -- The following two autocommands are used to highlight references of the
+  --         -- word under your cursor when your cursor rests there for a little while.
+  --         --    See `:help CursorHold` for information about when this is executed
+  --         -- When you move your cursor, the highlights will be cleared (the second autocommand).
+  --         local client = vim.lsp.get_client_by_id(event.data.client_id)
+  --         if client and client.server_capabilities.documentHighlightProvider then
+  --           vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+  --             buffer = event.buf,
+  --             callback = vim.lsp.buf.document_highlight,
+  --           })
+  --
+  --           vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+  --             buffer = event.buf,
+  --             callback = vim.lsp.buf.clear_references,
+  --           })
+  --         end
+  --       end,
+  --     })
+  --
+  --     local capabilities = vim.lsp.protocol.make_client_capabilities()
+  --     capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+  --
+  --     local servers = { zls = {} }
+  --
+  --     local lspcofig = require("lspconfig")
+  --
+  --     lspcofig.lua_ls.setup({
+  --       settings = {
+  --         Lua = {
+  --           runtime = { version = "LuaJIT" },
+  --           workspace = {
+  --             checkThirdParty = false,
+  --             library = {
+  --               "${3rd}/luv/library",
+  --               unpack(vim.api.nvim_get_runtime_file("", true)),
+  --             },
+  --           },
+  --           completion = {
+  --             callSnippet = "Replace",
+  --           },
+  --         },
+  --       },
+  --     })
+  --
+  --     lspcofig.zls.setup({
+  --       -- Server-specific settings. See `:help lspconfig-setup`
+  --
+  --       -- omit the following line if `zls` is in your PATH
+  --       cmd = { "/Users/octavio/.zig/zls-macos-aarch64-0.15.0-dev.254+22fc237c/zls" },
+  --       -- There are two ways to set config options:
+  --       --   - edit your `zls.json` that applies to any editor that uses ZLS
+  --       --   - set in-editor config options with the `settings` field below.
+  --       --
+  --       -- Further information on how to configure ZLS:
+  --       -- https://zigtools.org/zls/configure/
+  --       settings = {
+  --         zls = {
+  --           -- Whether to enable build-on-save diagnostics
+  --           --
+  --           -- Further information about build-on save:
+  --           -- https://zigtools.org/zls/guides/build-on-save/
+  --           -- enable_build_on_save = true,
+  --
+  --           -- Neovim already provides basic syntax highlighting
+  --           semantic_tokens = "partial",
+  --
+  --           -- omit the following line if `zig` is in your PATH
+  --           zig_exe_path = "/Users/octavio/.zig/zig-aarch64-macos-0.15.0-dev.905+edf785db0/zig",
+  --         },
+  --       },
+  --     })
+  --
+  --     vim.api.nvim_create_autocmd("BufWritePre", {
+  --       pattern = { "*.zig", "*.zon" },
+  --       callback = function(ev)
+  --         vim.lsp.buf.format()
+  --       end,
+  --     })
+  --
+  --     -- LOG
+  --     local log = require("plenary.log").new({
+  --       plugin = "lsp_custom_after",
+  --       level = "debug",
+  --       use_console = false,
+  --     })
+  --     for key, value in pairs(servers) do
+  --       if value["after"] then
+  --         log.info("Logging function reference for:", key)
+  --         log.debug("Function reference:", value["after"]) -- Logs the reference
+  --         log.info("Calling the function...")
+  --         value["after"]()                                 -- Call the function
+  --         log.info("Function executed successfully.")
+  --       end
+  --     end
+  --   end,
+  -- },
 }
