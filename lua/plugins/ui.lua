@@ -1,5 +1,4 @@
 return {
-  -- chaCon: Color Sheme
   {
     "EdenEast/nightfox.nvim",
     lazy = false,
@@ -32,7 +31,6 @@ return {
       vim.cmd.colorscheme("carbonfox")
     end,
   },
-  -- chaCon: dashboard
   {
     "snacks.nvim",
     opts = function(_, opts)
@@ -63,7 +61,6 @@ return {
 ]]
     end,
   },
-  -- chaCon: lualine -
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -76,17 +73,14 @@ return {
       }
     end,
   },
-  -- chaCon: nvim-highlight-colors - muestra color de RGB
   {
     "brenoprata10/nvim-highlight-colors",
     config = function()
       require("nvim-highlight-colors").setup({})
     end,
   },
-  -- chaCon: todo-comments -
   {
     "folke/todo-comments.nvim",
-    -- TODO: sdasdsa
     opts = function(_, opts)
       opts.signs = true
       opts.keywords = { chaCon = { icon = "o", color = "chaCon" }, TAILS = { icon = "󰩃", color = "tails" } }
