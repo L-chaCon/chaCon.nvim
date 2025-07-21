@@ -158,6 +158,9 @@ return {
             },
           },
         },
+
+        -- JS
+        deno = {},
       }
       -- Ensure the servers and tools above are installed
       require("mason").setup()
@@ -173,6 +176,8 @@ return {
         "gopls",
         -- RUST
         "rust_analyzer", --LSP
+        -- JS
+        "deno", --LSP
       })
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
