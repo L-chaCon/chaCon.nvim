@@ -3,9 +3,9 @@
 -- Add any additional keymaps here
 
 -- Save and source file
-vim.keymap.set("n", "<leader><leader>X", ":source %<CR>", { desc = "Save and Source" })
-vim.keymap.set("n", "<leader><leader>x", ":.lua<CR>")
-vim.keymap.set("v", "<leader><leader>x", ":lua<CR>")
+-- vim.keymap.set("n", "<leader><leader>X", ":source %<CR>", { desc = "Save and Source" })
+-- vim.keymap.set("n", "<leader><leader>x", ":.lua<CR>")
+-- vim.keymap.set("v", "<leader><leader>x", ":lua<CR>")
 
 -- Conceal level toggle
 vim.keymap.set("n", "<leader>tc", function()
@@ -57,3 +57,14 @@ vim.keymap.set("n", "<leader>fp", function()
     vim.opt.foldenable = true
   end
 end, { silent = true, desc = "[F]old for [P]ython" })
+
+vim.keymap.del("n", "<leader>ub")
+vim.keymap.set("n", "<leader>ub", function()
+  if vim.o.background == "dark" then
+    vim.o.background = "light"
+    vim.cmd.colorscheme("dayfox")
+  else
+    vim.o.background = "dark"
+    vim.cmd.colorscheme("carbonfox")
+  end
+end)
