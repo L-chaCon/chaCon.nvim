@@ -2,6 +2,7 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+vim.g.snacks_animate = false
 vim.g.lazyvim_picker = "telescope"
 
 -- Disable using system clipboard by default
@@ -56,4 +57,4 @@ vim.o.updatetime = 50
 vim.o.mousemoveevent = true
 
 -- Python host
-vim.g.python3_host_prog = vim.fn.expand("~") .. "/.pyenv/versions/nvim/bin/python"
+vim.g.python3_host_prog = vim.fn.expand("~") .. "/.pyenv/versions/nvim/bin/python3"
