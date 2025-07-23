@@ -76,6 +76,10 @@ return {
         { icon = "", key = "d", desc = "Database", action = ":ene | DBUI" },
         { icon = " ", key = "q", desc = "Quit", action = ":qa" },
       }
+      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#00ffff" })
+      vim.api.nvim_set_hl(0, "SnacksDashboardIcon", { fg = "#46c880" })
+      vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { fg = "#46c880" })
+      vim.api.nvim_set_hl(0, "SnacksDashboardKey", { fg = "#46c880" })
     end,
   },
   {
@@ -103,5 +107,11 @@ return {
       opts.keywords = { chaCon = { icon = "o", color = "chaCon" }, TAILS = { icon = "󰩃", color = "tails" } }
       opts.colors = { chaCon = { "#25BE6A" }, tails = { "#029ffa" } }
     end,
+  },
+  {
+    "Bekaboo/dropbar.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+    },
   },
 }
