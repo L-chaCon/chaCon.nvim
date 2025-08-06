@@ -22,6 +22,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.coding.nvim-cmp" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.python" },
+    { import = "lazyvim.plugins.extras.lang.go" },
     -- import/override with your plugins
     { import = "plugins" },
   },
