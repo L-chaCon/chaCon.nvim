@@ -1,4 +1,14 @@
--- [[ Setting options ]]
+-- Options are automatically loaded before lazy.nvim startup
+-- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- Add any additional options here
+
+vim.g.snacks_animate = false
+vim.g.lazyvim_picker = "telescope"
+
+-- Disable using system clipboard by default
+vim.opt.clipboard = ""
+
+-- -- [[ Setting options ]]
 -- Spelling
 vim.opt.spelllang = "en_gb"
 
@@ -41,23 +51,10 @@ vim.o.colorcolumn = "80" --If it is 80, is not line inclusive
 
 -- Limite superior
 vim.o.scrolloff = 10
-
 vim.o.updatetime = 50
-
--- HIGHLIGHT YANK
-vim.api.nvim_create_autocmd("TextYankPost", {
-  desc = "Highlight when yanking (copying) text",
-  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
 
 -- Mouse Options
 vim.o.mousemoveevent = true
 
--- Conceal Level for Obsidian
-vim.opt.conceallevel = 1
-
 -- Python host
-vim.g.python3_host_prog = vim.fn.expand("~") .. "/.pyenv/versions/nvim/bin/python"
+vim.g.python3_host_prog = vim.fn.expand("~") .. "/.pyenv/versions/nvim/bin/python3"
