@@ -4,7 +4,7 @@ return {
     {
       "J",
       "<cmd>TSJToggle<cr>",
-      desc = "Join Toggle",
+      desc = "Colaps indentation",
     },
   },
   opts = {
