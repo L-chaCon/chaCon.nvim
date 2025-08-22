@@ -23,6 +23,13 @@ return {
   },
   opts = function(_, opts)
     local cmp = require("cmp")
+    opts.mapping = vim.tbl_extend("force", opts.mapping, {
+      -- remove <CR> confirm
+      ["<CR>"] = cmp.config.disable,
+      -- keep C-y to confirm
+      ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+    })
+    opts.auto_brackets = {}
     -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline({ "/", "?" }, {
       mapping = cmp.mapping.preset.cmdline(),
