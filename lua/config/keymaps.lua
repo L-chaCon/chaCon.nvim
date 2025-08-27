@@ -17,6 +17,16 @@ vim.keymap.set("n", "<leader>tc", function()
   end
 end, { desc = "[T]eam toggle [C]onceal levels" })
 
+-- Relativenumber toggle
+vim.keymap.set("n", "<leader>tr", function()
+  ---@diagnostic disable-next-line: undefined-field
+  if vim.opt.relativenumber:get() then
+    vim.opt.relativenumber = false
+  else
+    vim.opt.relativenumber = true
+  end
+end, { desc = "[T]eam toggle [R]elative lines" })
+
 -- Moverse media pagina y centrar
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half Page DOWN" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half Page UP" })
@@ -48,7 +58,7 @@ vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- Python
-vim.keymap.set("n", "<leader>fp", function()
+vim.keymap.set("n", "<leader>pf", function()
   vim.opt.foldmethod = "indent"
   ---@diagnostic disable-next-line: undefined-field
   if vim.opt.foldenable:get() then
@@ -59,12 +69,5 @@ vim.keymap.set("n", "<leader>fp", function()
 end, { silent = true, desc = "[F]old for [P]ython" })
 
 vim.keymap.del("n", "<leader>ub")
-vim.keymap.set("n", "<leader>ub", function()
-  if vim.o.background == "dark" then
-    vim.o.background = "light"
-    vim.cmd.colorscheme("dayfox")
-  else
-    vim.o.background = "dark"
-    vim.cmd.colorscheme("carbonfox")
-  end
-end)
+vim.keymap.set("n", "<leader>ub", "<cmd>ToggleTheme<cr>")
+vim.keymap.set("n", "<leader>uB", "<cmd>SyncTheme<cr>", { desc = "Sync system appearance" })
