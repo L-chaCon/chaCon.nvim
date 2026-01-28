@@ -3,7 +3,6 @@
 -- Add any additional options here
 
 vim.g.snacks_animate = false
-vim.g.lazyvim_picker = "telescope"
 
 -- Disable using system clipboard by default
 vim.opt.clipboard = ""
