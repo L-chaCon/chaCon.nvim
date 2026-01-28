@@ -41,3 +41,22 @@ vim.api.nvim_create_user_command("ToggleTheme", function()
     apply_theme("dark")
   end
 end, {})
+
+-- QFix list
+vim.api.nvim_create_user_command("QFRemoveCurrent", function()
+  local qf = vim.fn.getqflist({ idx = 0, items = 0 })
+
+  -- No quickfix list or invalid index
+  if not qf.items or #qf.items == 0 or qf.idx == 0 then
+    return
+  end
+
+  -- Remove current entry (idx is 1-based)
+  table.remove(qf.items, qf.idx)
+
+  -- Replace quickfix list
+  vim.fn.setqflist({}, "r", {
+    items = qf.items,
+    idx = math.min(qf.idx, #qf.items),
+  })
+end, {})

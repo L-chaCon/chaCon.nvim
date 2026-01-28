@@ -61,3 +61,9 @@ end, { silent = true, desc = "[F]old for [P]ython" })
 vim.keymap.del("n", "<leader>ub")
 vim.keymap.set("n", "<leader>ub", "<cmd>ToggleTheme<cr>")
 vim.keymap.set("n", "<leader>uB", "<cmd>SyncTheme<cr>", { desc = "Sync system appearance" })
+
+-- QFix list
+vim.keymap.set("n", "<leader>xr", "<cmd>QFRemoveCurrent<cr>", { desc = "Remove current from QuixFix List" })
+
+-- TAILS:
+vim.keymap.set("n", "<leader>+", "<cmd>!make format<cr>")
