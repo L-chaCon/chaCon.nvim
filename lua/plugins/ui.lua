@@ -73,7 +73,6 @@ return {
         { icon = " ", key = "s", desc = "Restore Session", section = "session" },
         { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
         { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
-        { icon = "", key = "d", desc = "Database", action = ":ene | DBUI" },
         { icon = " ", key = "q", desc = "Quit", action = ":qa" },
       }
       vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#00ffff" })
