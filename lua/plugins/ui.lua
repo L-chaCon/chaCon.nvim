@@ -21,7 +21,14 @@ return {
         },
       }
       local specs = {}
-      local groups = {}
+      local groups = {
+        all = {
+          SnacksDashboardHeader = { fg = "palette.yellow.base" },
+          SnacksDashboardIcon = { fg = "palette.green.base" },
+          SnacksDashboardDesc = { fg = "palette.green.base" },
+          SnacksDashboardKey = { fg = "palette.green.base" },
+        },
+      }
       require("nightfox").setup({
         options = options,
         palettes = palettes,
@@ -75,10 +82,6 @@ return {
         { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
         { icon = " ", key = "q", desc = "Quit", action = ":qa" },
       }
-      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#00ffff" })
-      vim.api.nvim_set_hl(0, "SnacksDashboardIcon", { fg = "#46c880" })
-      vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { fg = "#46c880" })
-      vim.api.nvim_set_hl(0, "SnacksDashboardKey", { fg = "#46c880" })
     end,
   },
   {
@@ -103,8 +106,14 @@ return {
     "folke/todo-comments.nvim",
     opts = function(_, opts)
       opts.signs = true
-      opts.keywords = { chaCon = { icon = "o", color = "chaCon" }, TAILS = { icon = "󰩃", color = "tails" } }
-      opts.colors = { chaCon = { "#25BE6A" }, tails = { "#029ffa" } }
+      opts.keywords = {
+        chaCon = { icon = "o", color = "chaCon" },
+        TAILS = { icon = "󰩃", color = "tails" },
+      }
+      opts.colors = {
+        chaCon = { "#25BE6A" },
+        tails = { "#029ffa" },
+      }
     end,
   },
   {
