@@ -12,6 +12,10 @@ return {
       }
     end
 
+    vim.keymap.set("n", "<leader>fa", function()
+      Snacks.picker.files({ ignored = true, hidden = true })
+    end, { desc = "Find all files (including ignored)" })
+
     return opts
   end,
 }
