@@ -47,13 +47,6 @@ return {
       }),
       matching = { disallow_symbol_nonprefix_matching = false },
     })
-    -- Setup for vim-dadbod
-    cmp.setup.filetype({ "sql", "mysql", "mariadb" }, {
-      sources = {
-        { name = "vim-dadbod-completion" },
-        { name = "buffer" },
-      },
-    })
     return opts
   end,
 }
