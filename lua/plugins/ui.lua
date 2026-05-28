@@ -90,6 +90,7 @@ return {
       }
     end,
   },
+  -- Esto es para mostrar los colores con hash como esto #FFFFFF
   {
     "brenoprata10/nvim-highlight-colors",
     config = function()

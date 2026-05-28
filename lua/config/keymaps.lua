@@ -7,16 +7,6 @@
 -- vim.keymap.set("n", "<leader><leader>x", ":.lua<CR>")
 -- vim.keymap.set("v", "<leader><leader>x", ":lua<CR>")
 
--- Relativenumber toggle
-vim.keymap.set("n", "<leader>tr", function()
-  ---@diagnostic disable-next-line: undefined-field
-  if vim.opt.relativenumber:get() then
-    vim.opt.relativenumber = false
-  else
-    vim.opt.relativenumber = true
-  end
-end, { desc = "[T]eam toggle [R]elative lines" })
-
 -- Moverse media pagina y centrar
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half Page DOWN" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half Page UP" })
@@ -24,9 +14,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half Page UP" })
 -- Buscar y quedarse al medio
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-
--- pegar en visual mode y no perder lo que esta ahi
-vim.keymap.set("v", "<leader>p", '"_dP', { desc = "Pegar sin perder lo pegado" })
 
 -- Copiar a clipboard
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank clipboard" })
@@ -38,8 +25,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true, desc = "Mover todo
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Mover todo entre funcion DOWN" })
 
 -- Remap for dealing with word wrap
-vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- TIP: Disable arrow keys in normal mode
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')

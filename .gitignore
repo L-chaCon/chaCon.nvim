@@ -6,6 +6,4 @@ debug
 foo.*
 *.log
 data
-
-# chaCon: Personal
-.databases
+.venv

@@ -11,9 +11,6 @@ vim.opt.clipboard = ""
 -- Spelling
 vim.opt.spelllang = "en_gb"
 
--- Fold
-vim.opt.foldenable = false
-
 -- See `:help vim.o`
 vim.o.cursorline = false
 
@@ -56,4 +53,4 @@ vim.o.updatetime = 50
 vim.o.mousemoveevent = true
 
 -- Python host
-vim.g.python3_host_prog = vim.fn.expand("~") .. "/.pyenv/versions/nvim/bin/python3"
+vim.g.python3_host_prog = vim.fn.expand("~") .. "/.config/nvim/.venv/bin/python"
