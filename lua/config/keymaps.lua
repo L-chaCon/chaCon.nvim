@@ -36,3 +36,10 @@ vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- QFix list
 vim.keymap.set("n", "<leader>xr", "<cmd>QFRemoveCurrent<cr>", { desc = "Remove current from QuixFix List" })
+
+-- Format with jq
+vim.keymap.set("n", "<leader>aj", "<cmd>%!jq --indent 4 .<cr>", { desc = "Autoformat JSON 4 indent" })
+vim.keymap.set("n", "<leader>as", "<cmd>%!jq -S .<cr>", { desc = "Sort JSON alphabetic" })
+vim.keymap.set("n", "<leader>ar", "<cmd>%!jq -r .<cr>", { desc = "RAW JSON" })
+vim.keymap.set("n", "<leader>ac", "<cmd>%!jq -c .<cr>", { desc = "Compact JSON" })
+vim.keymap.set("n", "<leader>aR", "<cmd>%!jq -Rs .<cr>", { desc = "UN-RAW JSON" })

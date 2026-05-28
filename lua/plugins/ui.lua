@@ -13,13 +13,7 @@ return {
           search = true,
         },
       }
-      local palettes = {
-        carbonfox = {
-          bg1 = "#000000",
-          bg2 = "#1f1f1f",
-          comment = "#a5afc2",
-        },
-      }
+      local palettes = {}
       local specs = {}
       local groups = {
         all = {
@@ -35,7 +29,7 @@ return {
         specs = specs,
         groups = groups,
       })
-      vim.cmd.colorscheme("carbonfox")
+      vim.cmd.colorscheme("nordfox")
     end,
   },
   {
