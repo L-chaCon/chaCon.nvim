@@ -23,7 +23,7 @@ return {
           SnacksDashboardKey = { fg = "palette.green.base" },
         },
       }
-      require("nordfox").setup({
+      require("nightfox").setup({
         options = options,
         palettes = palettes,
         specs = specs,
