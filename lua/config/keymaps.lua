@@ -47,23 +47,12 @@ vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
--- Python
-vim.keymap.set("n", "<leader>pf", function()
-  vim.opt.foldmethod = "indent"
-  ---@diagnostic disable-next-line: undefined-field
-  if vim.opt.foldenable:get() then
-    vim.opt.foldenable = false
-  else
-    vim.opt.foldenable = true
-  end
-end, { silent = true, desc = "[F]old for [P]ython" })
-
-vim.keymap.del("n", "<leader>ub")
-vim.keymap.set("n", "<leader>ub", "<cmd>ToggleTheme<cr>")
-vim.keymap.set("n", "<leader>uB", "<cmd>SyncTheme<cr>", { desc = "Sync system appearance" })
-
 -- QFix list
 vim.keymap.set("n", "<leader>xr", "<cmd>QFRemoveCurrent<cr>", { desc = "Remove current from QuixFix List" })
 
--- TAILS:
-vim.keymap.set("n", "<leader>+", "<cmd>!make format<cr>")
+-- Format with jq
+vim.keymap.set("n", "<leader>aj", "<cmd>%!jq --indent 4 .<cr>", { desc = "Autoformat JSON 4 indent" })
+vim.keymap.set("n", "<leader>as", "<cmd>%!jq -S .<cr>", { desc = "Sort JSON alphabetic" })
+vim.keymap.set("n", "<leader>ar", "<cmd>%!jq -r .<cr>", { desc = "RAW JSON" })
+vim.keymap.set("n", "<leader>ac", "<cmd>%!jq -c .<cr>", { desc = "Compact JSON" })
+vim.keymap.set("n", "<leader>aR", "<cmd>%!jq -Rs .<cr>", { desc = "UN-RAW JSON" })

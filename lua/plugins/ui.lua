@@ -13,13 +13,7 @@ return {
           search = true,
         },
       }
-      local palettes = {
-        carbonfox = {
-          bg1 = "#000000",
-          bg2 = "#1f1f1f",
-          comment = "#a5afc2",
-        },
-      }
+      local palettes = {}
       local specs = {}
       local groups = {
         all = {
@@ -29,13 +23,13 @@ return {
           SnacksDashboardKey = { fg = "palette.green.base" },
         },
       }
-      require("nightfox").setup({
+      require("nordfox").setup({
         options = options,
         palettes = palettes,
         specs = specs,
         groups = groups,
       })
-      vim.cmd.colorscheme("carbonfox")
+      vim.cmd.colorscheme("nordfox")
     end,
   },
   {
@@ -104,22 +98,25 @@ return {
   },
   {
     "folke/todo-comments.nvim",
-    opts = function(_, opts)
-      opts.signs = true
-      opts.keywords = {
-        chaCon = { icon = "o", color = "chaCon" },
-        TAILS = { icon = "󰩃", color = "tails" },
-      }
-      opts.colors = {
-        chaCon = { "#25BE6A" },
-        tails = { "#029ffa" },
-      }
-    end,
   },
   {
     "Bekaboo/dropbar.nvim",
     dependencies = {
       "nvim-telescope/telescope-fzf-native.nvim",
+    },
+  },
+  {
+    "Wansmer/treesj",
+    keys = {
+      {
+        "J",
+        "<cmd>TSJToggle<cr>",
+        desc = "Colaps indentation",
+      },
+    },
+    opts = {
+      use_default_keymaps = false,
+      max_join_length = 80,
     },
   },
 }
