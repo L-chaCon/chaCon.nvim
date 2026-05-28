@@ -96,6 +96,7 @@ return {
       }
     end,
   },
+  -- Esto es para mostrar los colores con hash como esto #FFFFFF
   {
     "brenoprata10/nvim-highlight-colors",
     config = function()
@@ -104,22 +105,25 @@ return {
   },
   {
     "folke/todo-comments.nvim",
-    opts = function(_, opts)
-      opts.signs = true
-      opts.keywords = {
-        chaCon = { icon = "o", color = "chaCon" },
-        TAILS = { icon = "󰩃", color = "tails" },
-      }
-      opts.colors = {
-        chaCon = { "#25BE6A" },
-        tails = { "#029ffa" },
-      }
-    end,
   },
   {
     "Bekaboo/dropbar.nvim",
     dependencies = {
       "nvim-telescope/telescope-fzf-native.nvim",
+    },
+  },
+  {
+    "Wansmer/treesj",
+    keys = {
+      {
+        "J",
+        "<cmd>TSJToggle<cr>",
+        desc = "Colaps indentation",
+      },
+    },
+    opts = {
+      use_default_keymaps = false,
+      max_join_length = 80,
     },
   },
 }

@@ -16,6 +16,10 @@ return {
       Snacks.picker.files({ ignored = true, hidden = true })
     end, { desc = "Find all files (including ignored)" })
 
+    vim.keymap.set("n", "<leader>sA", function()
+      Snacks.picker.grep({ ignored = true, hidden = true })
+    end, { desc = "Grep all (including ignored)" })
+
     return opts
   end,
 }
